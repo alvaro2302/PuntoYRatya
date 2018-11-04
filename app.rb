@@ -4,6 +4,10 @@ require 'sinatra'
      erb :bienvenida
     end
 
-    post '/MostrarTablaVacia' do
+    post '/mostrarUserName' do
+      erb:userName
+    end
+
+    post '/mostrarTablaVacia' do
       erb:tablaVacia
     end
