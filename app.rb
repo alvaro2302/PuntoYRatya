@@ -4,10 +4,12 @@ require 'sinatra'
      erb :bienvenida
     end
 
-    post '/mostrarUserName' do
-      erb:userName
+    get '/mostrarUserName' do
+      erb :userName
     end
 
     post '/mostrarTablaVacia' do
-      erb:tablaVacia
+      @primerNombre = params[:first_user_name]
+      @segundoNombre = params[:second_user_name]
+      erb :tablaVacia  
     end
