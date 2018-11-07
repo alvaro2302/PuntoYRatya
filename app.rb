@@ -4,7 +4,10 @@ get '/' do
         erb:bienvenida
 end
 
-post '/sumar' do
-        "Sumar"
-end
-    
+    post '/mostrarUserName' do
+      erb:userName
+    end
+
+    post '/mostrarTablaVacia' do
+      erb:tablaVacia
+    end
