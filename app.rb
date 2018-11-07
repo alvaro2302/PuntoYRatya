@@ -4,8 +4,13 @@ get '/' do
         erb:bienvenida
 end
 
+<<<<<<< HEAD
+    post '/mostrarUserName' do
+      erb:userName
+=======
     get '/mostrarUserName' do
       erb :userName
+>>>>>>> origin/master
     end
 
     post '/mostrarTablaVacia' do
