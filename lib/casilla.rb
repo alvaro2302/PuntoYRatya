@@ -1,16 +1,38 @@
 class Casilla
   attr_accessor :LadoArriba,:LadoAbajo,:LadoDerecha,:LadoIzquierda
 
-    def initialize(fila,columna)
+    def initialize()
         @LadoArriba = false
         @LadoAbajo = false
         @LadoDerecha = false
         @LadoIzquierda = false
-        @baseFila = fila
-        @baseColumna = columna
+
+     
         
 
     end  
+
+    def ladoArriba()
+        return @LadoArriba
+    end
+
+    def LadoAbajo()
+        return @LadoAbajo
+    end
+
+    def LadoDerecha()
+        return @LadoDerecha
+    end
+
+    def LadoIzquierda()
+        return @LadoIzquierda
+    end
+
+    def estado()
+        return @estado
+    end
+
+
     
     def obtenerLado(filaInicial, columnaInicial, filaFinal,columnaFinal)
 
@@ -40,4 +62,27 @@ class Casilla
 
     end
 
+    def seleccionarLado(lado)
+    
+        case lado
+        when "Arriba"
+            @LadoArriba = true
+        when "Abajo"
+            @LadoAbajo = true
+        when "Derecha"
+            @LadoDerecha = true
+        when "Izquierda"
+            @LadoIzquierda = true
+        end  
+       
+    end
+
+    def estaLLena()
+        return @LadoArriba === true && @LadoAbajo === true && @LadoIzquierda === true && @LadoDerecha=== true
+    end
+
+
+
+
+   
 end
