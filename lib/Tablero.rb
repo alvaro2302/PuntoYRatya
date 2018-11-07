@@ -10,6 +10,7 @@ class Tablero do
     def filas()
 
         return @filas
+        
     end
 
     def columnas()
