@@ -1,8 +1,8 @@
 require 'sinatra'
 
-    get '/' do
-     erb :bienvenida
-    end
+get '/' do
+        erb:bienvenida
+end
 
     get '/mostrarUserName' do
       erb :userName
