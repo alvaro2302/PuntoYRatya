@@ -1,22 +1,19 @@
 <style>
-<<<<<<< HEAD
-  table,th,td{
-=======
+.main{
+  background-color: #8ed0e3  ;
+  height: 635px;
+}
+
 table,th,td{
->>>>>>> origin/master
   border-collapse: collapse;
   position : relative;
   top: 10%
-
   }
 
   h1{
-    
     position : relative;
     bottom: 31px;
-    left: -6px; 
-
-  
+    left: -6px;   
   }
 
   table.border-top:hover{
@@ -24,104 +21,75 @@ table,th,td{
     transition: banckgroud-color .5s;
   }
 
-  
-  .topBorder:hover{
-
- 
-  border-top: solid;
-  backgroud-color : blue;
-  transition: banckgroud-color .5s;
+  .topBorder:hover{ 
+    border-top: solid;
+    backgroud-color : blue;
+    transition: banckgroud-color .5s;
   }
-  
 
+  .tittle{
+    font-family:Bradley Hand, cursive;
+    font-size: 60pt;
+    color:  #e3a18e;
+    margin-left:30%;
+  }
 
-
-
+  .jugador{
+    font-family:Verdana, sans-serif;
+    font-size: 20pt;
+    color:  #344c60 ;
+    margin-left:10%;
+  }
 
 </style>
 
-<<<<<<< HEAD
-=======
-Timbiriche
+<div class="main">
+  <label class="tittle" >DOTS AND LINES</label>
+  <br><br><br><br>
+  <div class="jugador"> 
+    <label>Primer Jugador:  <%= @primerNombre %></label>
+  </div>
+  <br>
+  <div class="jugador">
+    <label>Segundo Jugador: <%= @segundoNombre %></label>
+  </div>
 
-<h5>Primer Jugador:</h5>
-<p><%= @primerNombre %></p>
+  <table style align="center" width= "50%" height="50%";>
 
-<h5>Segundo Jugador:</h5>
-<p><%= @segundoNombre %></p>
->>>>>>> origin/master
-
-<table style align="center" width= "50%" height="50%";>
-
-  <tr>
-<<<<<<< HEAD
-    <th class="topBorder"><h1 style align = "left">.</h1></th>
-    <th class="topBorder" ><h1 style align = "left">.</h1></th>
-    <th class="topBorder"><h1 style align = "left">.</h1></th>
-    <th class="topBorder"><h1 style align = "left">.</h1></th>
-    <th class="topBorder"><h1 style align = "left">.</h1></th>
-  </tr>
-  <tr>
-    <th><h1 style align = "left">.</h1></th>
-    <th><h1 style align = "left">.</h1></th>
-    <th><h1 style align = "left">.</h1></th>
-    <th><h1 style align = "left">.</h1></th>
-    <th><h1 style align = "left">.</h1></th>
-  </tr>
-  <tr>
-    <th><h1 style align = "left">.</h1></th>
-    <th><h1 style align = "left">.</h1></th>
-    <th><h1 style align = "left">.</h1></th>
-    <th><h1 style align = "left">.</h1></th>
-    <th><h1 style align = "left">.</h1></th>
+    <tr>
+      <th><h1>.</h1></th>
+      <th><h1>.</h1></th>
+      <th><h1>.</h1></th>
+      <th><h1>.</h1></th>
+      <th><h1>.</h1></th>
     </tr>
-  <tr>
-    <th><h1 style align = "left">.</h1></th>
-    <th><h1 style align = "left">.</h1></th>
-    <th><h1 style align = "left">.</h1></th>
-    <th><h1 style align = "left">.</h1></th>
-    <th><h1 style align = "left">.</h1></th>
-  </tr>
-  <tr>
-    <th><h1 style align = "left">.</h1></th>
-    <th><h1 style align = "left">.</h1></th>
-    <th><h1 style align = "left">.</h1></th>
-    <th><h1 style align = "left">.</h1></th>
-    <th><h1 style align = "left">.</h1></th>
-=======
-    <th><h1>.</h1></th>
-    <th><h1>.</h1></th>
-    <th><h1>.</h1></th>
-    <th><h1>.</h1></th>
-    <th><h1>.</h1></th>
-  </tr>
-  <tr>
-    <th><h1>.</h1></th>
-    <th><h1>.</h1></th>
-    <th><h1>.</h1></th>
-    <th><h1>.</h1></th>
-    <th><h1>.</h1></th>
-  </tr>
-  <tr>
-    <th><h1>.</h1></th>
-    <th><h1>.</h1></th>
-    <th><h1>.</h1></th>
-    <th><h1>.</h1></th>
-    <th><h1>.</h1></th>
-  </tr>
-  <tr>
-    <th><h1>.</h1></th>
-    <th><h1>.</h1></th>
-    <th><h1>.</h1></th>
-    <th><h1>.</h1></th>
-    <th><h1>.</h1></th>
-  </tr>
-  <tr>
-    <th><h1>.</h1></th>
-    <th><h1>.</h1></th>
-    <th><h1>.</h1></th>
-    <th><h1>.</h1></th>
-    <th><h1>.</h1></th>
->>>>>>> origin/master
-  </tr>
-</table>
+    <tr>
+      <th><h1>.</h1></th>
+      <th><h1>.</h1></th>
+      <th><h1>.</h1></th>
+      <th><h1>.</h1></th>
+      <th><h1>.</h1></th>
+    </tr>
+    <tr>
+      <th><h1>.</h1></th>
+      <th><h1>.</h1></th>
+      <th><h1>.</h1></th>
+      <th><h1>.</h1></th>
+      <th><h1>.</h1></th>
+    </tr>
+    <tr>
+      <th><h1>.</h1></th>
+      <th><h1>.</h1></th>
+      <th><h1>.</h1></th>
+      <th><h1>.</h1></th>
+      <th><h1>.</h1></th>
+    </tr>
+    <tr>
+      <th><h1>.</h1></th>
+      <th><h1>.</h1></th>
+      <th><h1>.</h1></th>
+      <th><h1>.</h1></th>
+      <th><h1>.</h1></th>
+    </tr>
+  </table>
+</div>
