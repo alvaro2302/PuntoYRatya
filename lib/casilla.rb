@@ -81,6 +81,16 @@ class Casilla
         return @LadoArriba === true && @LadoAbajo === true && @LadoIzquierda === true && @LadoDerecha=== true
     end
 
+    def obtenerEstado
+        estadoCadena = "" 
+        estado = [@LadoArriba,@LadoAbajo,@LadoDerecha,@LadoIzquierda]
+        estado.each do |elemento|
+            estadoCadena = estadoCadena + elemento.to_s + " "    
+        end
+        return estadoCadena
+
+    end
+
 
 
 

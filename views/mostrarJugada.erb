@@ -2,6 +2,8 @@
 table,th,td{
   border: 1px solid black;
   border-collapse: collapse;
+  width:50;
+  height:50;
   }
 
   h1{
@@ -28,21 +30,9 @@ table,th,td{
   }
   
 
-  .td-border-top{
-    border-top: 3px solid black;
-  }
 
-  .td-border-left{
-    border-left: 3px solid black;
-  }
 
-  .td-border-right{
-    border-right: 3px solid black;
-  }
 
-  .td-border-bottom{
-    border-bottom: 3px solid black;
-  }
 
 </style>
 
@@ -58,15 +48,15 @@ Timbiriche
 
   <% @matriz.each do|fila|%>
     <tr>
-     
       <% fila.each do|columna|%>
-        <td class="
-          <%= 'td-border-top' if columna.ladoArriba() %> 
-          <%= 'td-border-left' if columna.LadoIzquierda() %> 
-          <%= 'td-border-bottom' if columna.LadoAbajo() %> 
-          <%= 'td-border-right' if columna.LadoDerecha() %> 
-        ">
-        </td>
+
+        <% if columna.obtenerEstado == "false false false false " %>
+          <td></td>
+        <% end %>
+        <% if columna.obtenerEstado == "true false false false " %>
+          <td style="border-top: solid"></td>
+        <% end %>
+
       <% end %>
 
     </tr> 
@@ -74,6 +64,7 @@ Timbiriche
   
 
 </table>
+
 <form method="post" action="/mostrarJugada">
     <label>Ingrese la fila:</label>
     <input type='text' name='fila' id='fila'>
@@ -85,5 +76,3 @@ Timbiriche
     <input type='submit' name='selection' value='Izquierda'>
     <input type='submit' name='selection' value='Derecha'>
 </form>
-
-
