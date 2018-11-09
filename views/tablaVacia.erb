@@ -90,12 +90,13 @@ table,th,td{
     font-family:Verdana, sans-serif;
     font-size: 15pt;
     color:  #344c60;
-    margin-left:2%;
+    margin-left:2%
   }
 </style>
 
 <div class="main">
   <label class="tittle" >DOTS AND LINES</label>
+  
   <br><br><br><br>
   <div class="jugador"> 
     <%  if @jugador1.turno() %>
@@ -116,6 +117,8 @@ table,th,td{
     <br>
     <label>Segundo Jugador: <%= @jugador2.nombre() %></label>
   </div>
+  <label>puntaje jugador1:  <%= @jugador1.puntos()%></label>
+  <label>puntaje Jugador2:  <%= @jugador2.puntos()%></label>
   <br><br>
    <% cont=0 %>
   <table id="tabla" name="tabla" style align="center" width= "50%" height="50%";>

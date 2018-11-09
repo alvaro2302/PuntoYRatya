@@ -7,7 +7,7 @@ class Jugador
         @Puntos = 0
     end  
 
-    def nombre()
+    def nombre
         return @Nombre
     end
 
@@ -28,6 +28,7 @@ class Jugador
     end
 
     def aumentar_punto()
-        return @Puntos + 1
+        puntoActual = @Puntos
+        @Puntos = puntoActual+1
     end
 end
