@@ -1,8 +1,12 @@
 require 'sinatra'
-require "./lib/tablero"
+require './lib/tablero'
+require './lib/jugador'
+
 tablero = Tablero.new(4,4)
 filas = 4 
 enable :sessions
+primer_jugador = Jugador.new
+segundo_jugador = Jugador.new
 
 get '/' do
   erb:bienvenida
@@ -13,11 +17,18 @@ get '/mostrarUserName' do
 end
 
 post '/mostrarTablaVacia' do  
-  @primerNombre = params[:first_user_name]
-  @segundoNombre = params[:second_user_name]
+  primer_jugador.poner_nombre(params[:first_user_name])
+  segundo_jugador.poner_nombre(params[:second_user_name])
+
+  segundo_jugador.cambiar_turno(false)
+
+  @jugador1 = primer_jugador
+  @jugador2 = segundo_jugador
+
   @filas = filas
   @matriz = tablero.obtenerMatriz
-  erb :tablaVacia  
+
+  erb :tablaVacia
 end
 
 post '/mostrarJugada' do
@@ -38,7 +49,17 @@ post '/mostrarJugada' do
   end 
   @filas = filas
   @matriz = tablero.obtenerMatriz
+
+  if primer_jugador.turno()
+    primer_jugador.cambiar_turno(false)
+    segundo_jugador.cambiar_turno(true)
+  else
+    primer_jugador.cambiar_turno(true)
+    segundo_jugador.cambiar_turno(false)
+  end
+
+  @jugador1 = primer_jugador
+  @jugador2 = segundo_jugador
+
   erb :tablaVacia
 end
-
-

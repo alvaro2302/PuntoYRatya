@@ -1,9 +1,8 @@
-require "./lib/casilla"
+require_relative './casilla'
 
 class Tablero 
-   attr_accessor :filas,:columnas,:matriz
-
-    def initialize(filas,columnas)
+    attr_accessor :filas, :columnas,:matriz
+    def initialize(filas , columnas)
         @filas = filas
         @columnas = columnas 
         @matriz=Array.new(@filas) {Array.new(@columnas) {Casilla.new()}}
