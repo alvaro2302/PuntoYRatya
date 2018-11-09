@@ -22,45 +22,71 @@ table,th,td{
     backgroud-color : blue;
     transition: banckgroud-color .5s;
   }
+
+  .jugador{
+    font-family:Verdana, sans-serif;
+    font-size: 10pt;
+    color:  #344c60;
+    margin-left:10%;
+  }
+
+  .tittle{
+    font-family:Bradley Hand, cursive;
+    font-size: 60pt;
+    color:  #e3a18e;
+    margin-left:30%;
+  }
 </style>
 
-Timbiriche
-
-<h5>Primer Jugador:</h5>
-<p><%= @primerNombre %></p>
-
-<h5>Segundo Jugador:</h5>
-<p><%= @segundoNombre %></p>
-<% cont=0 %>
-<table style align="center" width= "50%" height="50%";>
-
-  <% @matriz.each do|fila|%>
-    <tr>
-      <% fila.each do|columna|%>
-
-        <% if columna.obtenerEstado == "false false false false " %>
-          <td></td>
+<div class="main">
+  <label class="tittle" >DOTS AND LINES</label>
+  <br><br><br><br>
+  <div class="jugador"> 
+    <%  if @jugador1.turno() %>
+      <label class= "visible">Es turno de:</label>
+      <% else %>
+      <label class= "escondido">Es turno de:</label>
+    <% end %>
+    <br>
+    <label>Primer Jugador:  <%= @jugador1.nombre() %></label>
+  </div>
+  <br>
+  <div class="jugador">
+    <%  if @jugador2.turno() %>
+      <label class= "visible">Es turno de:</label>
+      <% else %>
+      <label class= "escondido">Es turno de:</label>
+    <% end %>
+    <br>
+    <label>Segundo Jugador: <%= @jugador2.nombre() %></label>
+  </div>
+  <br><br>
+   <% cont=0 %>
+  <table id="tabla" name="tabla" style align="center" width= "50%" height="50%";>
+    <% @matriz.each do|fila|%>
+      <tr>
+        <% fila.each do|columna|%>
+          <td class="
+            <%= 'td-border-top' if columna.ladoArriba() %> 
+            <%= 'td-border-left' if columna.LadoIzquierda() %> 
+            <%= 'td-border-bottom' if columna.LadoAbajo() %> 
+            <%= 'td-border-right' if columna.LadoDerecha() %> 
+          ">
+          </td>
         <% end %>
-        <% if columna.obtenerEstado == "true false false false " %>
-          <td style="border-top: solid"></td>
-        <% end %>
-
-      <% end %>
-
-    </tr> 
-  <% end %>
-  
-
-</table>
-
-<form method="post" action="/mostrarJugada">
-    <label>Ingrese la fila:</label>
-    <input type='text' name='fila' id='fila'>
-    <label>Ingrese la columna:</label>
-    <input type='text' name='columna' id='columna'>
-    
-    <input type='submit' name='selection' value='Arriba'>
-    <input type='submit' name='selection' value='Abajo'>
-    <input type='submit' name='selection' value='Izquierda'>
-    <input type='submit' name='selection' value='Derecha'>
-</form>
+      </tr> 
+    <% end %>
+  </table>  
+  <br><br>
+  <form method="post" action="/mostrarJugada">
+      <label>Ingrese la fila:</label>
+      <input type='text' name='fila' id='fila'>
+      <label>Ingrese la columna:</label>
+      <input type='text' name='columna' id='columna'>
+      
+      <input type='submit' name='selection' value='Arriba'>
+      <input type='submit' name='selection' value='Abajo'>
+      <input type='submit' name='selection' value='Izquierda'>
+      <input type='submit' name='selection' value='Derecha'>
+  </form>
+</div>
