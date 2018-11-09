@@ -1,4 +1,5 @@
-require_relative "./lib/casilla"
+require_relative "./casilla"
+
 class Tablero do
     attr_accessor :filas, :columnas,:matriz
     def initialize(filas , columnas)
@@ -15,6 +16,4 @@ class Tablero do
     def columnas()
         return @columnas
     end
-    
-
 end

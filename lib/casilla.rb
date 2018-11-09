@@ -6,10 +6,6 @@ class Casilla
         @LadoAbajo = false
         @LadoDerecha = false
         @LadoIzquierda = false
-
-     
-        
-
     end  
 
     def ladoArriba()
@@ -32,8 +28,6 @@ class Casilla
         return @estado
     end
 
-
-    
     def obtenerLado(filaInicial, columnaInicial, filaFinal,columnaFinal)
 
         lado = ""
@@ -46,20 +40,12 @@ class Casilla
                 lado = "arriba"
 
             end
-
             if diferenciacolumna == 0 and diferenciafila == 1
                 lado = "izquierda"
 
             end
-        else
-            
-        
-        
         end
-
         return lado
-
-
     end
 
     def seleccionarLado(lado)
@@ -80,9 +66,4 @@ class Casilla
     def estaLLena()
         return @LadoArriba === true && @LadoAbajo === true && @LadoIzquierda === true && @LadoDerecha=== true
     end
-
-
-
-
-   
 end

@@ -5,7 +5,7 @@ Feature: Bienvenida
 
     Scenario: mensaje de bienvenida
         Given visito la pagina bienvenida
-        Then deberia ver el mensaje "bienvenido a Timbiriche"
+        Then deberia ver el mensaje "Boxes and Dots"
     
     Scenario: boton iniciar
         Given visito la pagina bienvenida
