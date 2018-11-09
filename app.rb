@@ -1,7 +1,9 @@
 require 'sinatra'
 require "./lib/tablero"
 tablero = Tablero.new(4,4)
-filas = 4 
+filas = 4
+playerOne = ""
+playerTwo = ""
 enable :sessions
 
 get '/' do
@@ -17,6 +19,8 @@ post '/mostrarTablaVacia' do
   
   @primerNombre = params[:first_user_name]
   @segundoNombre = params[:second_user_name]
+  playerOne = @primerNombre
+  playerTwo = @segundoNombre 
   @filas = filas
   @matriz = tablero.obtenerMatriz
   erb :tablaVacia  
@@ -25,6 +29,8 @@ end
 
 post '/mostrarJugada' do
 
+  @primerNombre = playerOne
+  @segundoNombre = playerTwo
   @fila = params[:fila].to_i
   @columna = params[:columna].to_i
   seleccion = params[:selection]
