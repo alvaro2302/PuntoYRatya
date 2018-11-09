@@ -5,9 +5,9 @@ Feature: Bienvenida
 
     Scenario: mensaje de bienvenida
         Given visito la pagina bienvenida
-        Then deberia ver el mensaje "Boxes and Dots"
+        Then deberia ver el mensaje "WELCOME TO"
     
     Scenario: boton iniciar
         Given visito la pagina bienvenida
         When presiono el boton "Iniciar"
-        Then deberia ver la pagina con titulo "nuevo usuario"
+        Then deberia ver la pagina con titulo "JUGADORES"
