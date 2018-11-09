@@ -1,7 +1,7 @@
 <style>
 .main{
-  background-color: #8ed0e3  ;
-  height: 800px;
+  background-color: #a2d9e8  ;
+  height: 820px;
 }
 
 table,th,td{
@@ -37,7 +37,7 @@ table,th,td{
 
   .jugador{
     font-family:Verdana, sans-serif;
-    font-size: 10pt;
+    font-size: 15pt;
     color:  #344c60;
     margin-left:10%;
   }
@@ -60,6 +60,37 @@ table,th,td{
 
   .escondido {
     visibility: hidden;
+  }
+
+  .boton-arriba{
+    text-decoration: none;
+    padding: 5px;
+    font-weight: 400;
+    font-size: 20px;
+    color: black;
+    background-color: #65d97f;
+    border-radius: 4px;
+    border: 2px solid #30c251;
+    margin-left:1%;
+  }
+
+  .boton-abajo{
+    text-decoration: none;
+    padding: 5px;
+    font-weight: 400;
+    font-size: 20px;
+    color: black;
+    background-color: #30c251;
+    border-radius: 4px;
+    border: 2px solid #65d97f;
+    margin-left:1%;
+  }
+
+  .filas-cols{
+    font-family:Verdana, sans-serif;
+    font-size: 15pt;
+    color:  #344c60;
+    margin-left:2%;
   }
 </style>
 
@@ -104,15 +135,15 @@ table,th,td{
   </table>  
   <br><br>
   <form method="post" action="/mostrarJugada">
-      <label>Ingrese la fila:</label>
+      <label class="filas-cols">Ingrese la fila:</label>
       <input type='text' name='fila' id='fila'>
-      <label>Ingrese la columna:</label>
-      <input type='text' name='columna' id='columna'>
+      <label class="filas-cols">Ingrese la columna:</label>
+      <input type='text' name='columna' id='columna' >
       
-      <input type='submit' name='selection' value='Arriba'>
-      <input type='submit' name='selection' value='Abajo'>
-      <input type='submit' name='selection' value='Izquierda'>
-      <input type='submit' name='selection' value='Derecha'>
+      <input  class="boton-arriba" type='submit' name='selection' value='Arriba'>
+      <input class="boton-abajo" type='submit' name='selection' value='Abajo'>
+      <input class="boton-arriba" type='submit' name='selection' value='Izquierda'>
+      <input class="boton-abajo" type='submit' name='selection' value='Derecha'>
   </form>
 </div>
 
