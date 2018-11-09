@@ -1,22 +1,20 @@
 <style>
-<<<<<<< HEAD
   table,th,td{
-=======
-table,th,td{
->>>>>>> origin/master
-  border-collapse: collapse;
-  position : relative;
-  top: 10%
+    border-collapse: collapse;
+    position : relative;
+    top: 10%
+  }
 
+  #tabla {
+    align="center" 
+    width= "50%" 
+    height="50%"
   }
 
   h1{
-    
     position : relative;
     bottom: 31px;
     left: -6px; 
-
-  
   }
 
   table.border-top:hover{
@@ -24,71 +22,46 @@ table,th,td{
     transition: banckgroud-color .5s;
   }
 
-  
   .topBorder:hover{
-
- 
   border-top: solid;
   backgroud-color : blue;
   transition: banckgroud-color .5s;
   }
-  
 
+  .visible {
+    visibility: visible;
+  }
 
-
-
-
+  .escondido {
+    visibility: hidden;
+  }
 </style>
 
-<<<<<<< HEAD
-=======
-Timbiriche
+Boxes and Dots
 
+<%  if @jugador1.turno() %>
+  <h3 class= "visible">Es turno de:</h3>
+  <% else %>
+  <h3 class= "escondido">Es turno de:</h3>
+<% end %>
 <h5>Primer Jugador:</h5>
-<p><%= @primerNombre %></p>
+<p><%= @jugador1.nombre() %></p>
 
+<%  if @jugador2.turno() %>
+  <h3 class= "visible">Es turno de:</h3>
+  <% else %>
+  <h3 class= "escondido">Es turno de:</h3>
+<% end %>
 <h5>Segundo Jugador:</h5>
-<p><%= @segundoNombre %></p>
->>>>>>> origin/master
+<p><%= @jugador2.nombre() %></p>
 
-<table style align="center" width= "50%" height="50%";>
+<form action="/cambioTurno" method="get">
+  <input type="submit" value="siguiente turno">
+</form>
+
+<table id="tabla" name="tabla">
 
   <tr>
-<<<<<<< HEAD
-    <th class="topBorder"><h1 style align = "left">.</h1></th>
-    <th class="topBorder" ><h1 style align = "left">.</h1></th>
-    <th class="topBorder"><h1 style align = "left">.</h1></th>
-    <th class="topBorder"><h1 style align = "left">.</h1></th>
-    <th class="topBorder"><h1 style align = "left">.</h1></th>
-  </tr>
-  <tr>
-    <th><h1 style align = "left">.</h1></th>
-    <th><h1 style align = "left">.</h1></th>
-    <th><h1 style align = "left">.</h1></th>
-    <th><h1 style align = "left">.</h1></th>
-    <th><h1 style align = "left">.</h1></th>
-  </tr>
-  <tr>
-    <th><h1 style align = "left">.</h1></th>
-    <th><h1 style align = "left">.</h1></th>
-    <th><h1 style align = "left">.</h1></th>
-    <th><h1 style align = "left">.</h1></th>
-    <th><h1 style align = "left">.</h1></th>
-    </tr>
-  <tr>
-    <th><h1 style align = "left">.</h1></th>
-    <th><h1 style align = "left">.</h1></th>
-    <th><h1 style align = "left">.</h1></th>
-    <th><h1 style align = "left">.</h1></th>
-    <th><h1 style align = "left">.</h1></th>
-  </tr>
-  <tr>
-    <th><h1 style align = "left">.</h1></th>
-    <th><h1 style align = "left">.</h1></th>
-    <th><h1 style align = "left">.</h1></th>
-    <th><h1 style align = "left">.</h1></th>
-    <th><h1 style align = "left">.</h1></th>
-=======
     <th><h1>.</h1></th>
     <th><h1>.</h1></th>
     <th><h1>.</h1></th>
@@ -122,6 +95,5 @@ Timbiriche
     <th><h1>.</h1></th>
     <th><h1>.</h1></th>
     <th><h1>.</h1></th>
->>>>>>> origin/master
   </tr>
 </table>
