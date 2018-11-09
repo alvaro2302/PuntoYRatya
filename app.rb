@@ -24,7 +24,6 @@ post '/mostrarTablaVacia' do
 
   @jugador1 = primer_jugador
   @jugador2 = segundo_jugador
-
   @filas = filas
   @matriz = tablero.obtenerMatriz
 
@@ -63,3 +62,4 @@ post '/mostrarJugada' do
 
   erb :tablaVacia
 end
+

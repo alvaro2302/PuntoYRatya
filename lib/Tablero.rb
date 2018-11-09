@@ -51,8 +51,6 @@ class Tablero
             end
         end
     end
-
-
     
     def obtenerCasilla(fila,columna)
         return @matriz[fila][columna]

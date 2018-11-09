@@ -41,7 +41,6 @@ class Casilla
             if diferenciacolumna == 0 and diferenciafila == 1
                 lado = "izquierda"
             end
-        else 
         end
         return lado
     end
@@ -71,9 +70,4 @@ class Casilla
         end
         return estadoCadena
     end
-
-
-
-
-   
 end
