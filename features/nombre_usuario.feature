@@ -14,4 +14,4 @@ Feature: User Name
         When ingreso el nombre 'Jose' en el primer campo con id 'first_user_name'
         And ingreso el nombre 'Juan' en el segundo campo con id 'second_user_name'
         And presiono el boton 'Iniciar Partida'
-        Then deberia ver la pagina con titulo 'Timbiriche'
+        Then deberia ver la pagina con titulo 'DOTS AND LINES'
