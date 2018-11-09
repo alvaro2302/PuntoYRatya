@@ -1,0 +1,66 @@
+<style>
+table,th,td{
+  border: 1px solid black;
+  border-collapse: collapse;
+  width:50;
+  height:50;
+  }
+
+  h1{ 
+    position : relative;
+    bottom: 31px;
+    left: -6px;  
+  }
+
+  table.border-top:hover{
+    backgroud-color : blue;
+    transition: banckgroud-color .5s;
+  }
+
+  .topBorder:hover{
+    border-top: solid;
+    backgroud-color : blue;
+    transition: banckgroud-color .5s;
+  }
+</style>
+
+Timbiriche
+
+<h5>Primer Jugador:</h5>
+<p><%= @primerNombre %></p>
+
+<h5>Segundo Jugador:</h5>
+<p><%= @segundoNombre %></p>
+<% cont=0 %>
+<table style align="center" width= "50%" height="50%";>
+
+  <% @matriz.each do|fila|%>
+    <tr>
+      <% fila.each do|columna|%>
+
+        <% if columna.obtenerEstado == "false false false false " %>
+          <td></td>
+        <% end %>
+        <% if columna.obtenerEstado == "true false false false " %>
+          <td style="border-top: solid"></td>
+        <% end %>
+
+      <% end %>
+
+    </tr> 
+  <% end %>
+  
+
+</table>
+
+<form method="post" action="/mostrarJugada">
+    <label>Ingrese la fila:</label>
+    <input type='text' name='fila' id='fila'>
+    <label>Ingrese la columna:</label>
+    <input type='text' name='columna' id='columna'>
+    
+    <input type='submit' name='selection' value='Arriba'>
+    <input type='submit' name='selection' value='Abajo'>
+    <input type='submit' name='selection' value='Izquierda'>
+    <input type='submit' name='selection' value='Derecha'>
+</form>

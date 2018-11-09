@@ -1,13 +1,14 @@
 <style>
 .main{
   background-color: #8ed0e3  ;
-  height: 635px;
+  height: 800px;
 }
 
 table,th,td{
+  border: 1px solid black;
   border-collapse: collapse;
-  position : relative;
-  top: 10%
+  width:500;
+  height:100;
   }
 
   h1{
@@ -41,6 +42,22 @@ table,th,td{
     margin-left:10%;
   }
 
+  .td-border-top{
+    border-top: 3px solid black;
+  }
+
+  .td-border-left{
+    border-left: 3px solid black;
+  }
+
+  .td-border-right{
+    border-right: 3px solid black;
+  }
+
+  .td-border-bottom{
+    border-bottom: 3px solid black;
+  }
+
 </style>
 
 <div class="main">
@@ -53,43 +70,34 @@ table,th,td{
   <div class="jugador">
     <label>Segundo Jugador: <%= @segundoNombre %></label>
   </div>
-
+  <br><br>
+   <% cont=0 %>
   <table style align="center" width= "50%" height="50%";>
-
-    <tr>
-      <th><h1>.</h1></th>
-      <th><h1>.</h1></th>
-      <th><h1>.</h1></th>
-      <th><h1>.</h1></th>
-      <th><h1>.</h1></th>
-    </tr>
-    <tr>
-      <th><h1>.</h1></th>
-      <th><h1>.</h1></th>
-      <th><h1>.</h1></th>
-      <th><h1>.</h1></th>
-      <th><h1>.</h1></th>
-    </tr>
-    <tr>
-      <th><h1>.</h1></th>
-      <th><h1>.</h1></th>
-      <th><h1>.</h1></th>
-      <th><h1>.</h1></th>
-      <th><h1>.</h1></th>
-    </tr>
-    <tr>
-      <th><h1>.</h1></th>
-      <th><h1>.</h1></th>
-      <th><h1>.</h1></th>
-      <th><h1>.</h1></th>
-      <th><h1>.</h1></th>
-    </tr>
-    <tr>
-      <th><h1>.</h1></th>
-      <th><h1>.</h1></th>
-      <th><h1>.</h1></th>
-      <th><h1>.</h1></th>
-      <th><h1>.</h1></th>
-    </tr>
-  </table>
+    <% @matriz.each do|fila|%>
+      <tr>
+        <% fila.each do|columna|%>
+          <td class="
+            <%= 'td-border-top' if columna.ladoArriba() %> 
+            <%= 'td-border-left' if columna.LadoIzquierda() %> 
+            <%= 'td-border-bottom' if columna.LadoAbajo() %> 
+            <%= 'td-border-right' if columna.LadoDerecha() %> 
+          ">
+          </td>
+        <% end %>
+      </tr> 
+    <% end %>
+  </table>  
+  <br><br>
+  <form method="post" action="/mostrarJugada">
+      <label>Ingrese la fila:</label>
+      <input type='text' name='fila' id='fila'>
+      <label>Ingrese la columna:</label>
+      <input type='text' name='columna' id='columna'>
+      
+      <input type='submit' name='selection' value='Arriba'>
+      <input type='submit' name='selection' value='Abajo'>
+      <input type='submit' name='selection' value='Izquierda'>
+      <input type='submit' name='selection' value='Derecha'>
+  </form>
 </div>
+
