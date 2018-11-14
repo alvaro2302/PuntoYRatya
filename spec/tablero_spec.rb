@@ -1,4 +1,4 @@
-require "./lib/tablero.rb"
+require "./lib/tablero"
 describe Tablero do
 
 

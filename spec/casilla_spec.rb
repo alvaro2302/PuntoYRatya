@@ -1,4 +1,4 @@
-require "./lib/casilla.rb"
+require "./lib/casilla"
 
 describe Casilla do
 
