@@ -1,7 +1,6 @@
 require "./lib/tablero"
 describe Tablero do
-
-
+    
     it "cuando marque derecha en la posicion '0,0' en una casilla ,si hay una alado deberia estar marcado izquierda" do
         tablero = Tablero.new(4,4)
         tablero.marcarDerecha(0,0)
