@@ -10,6 +10,7 @@ gem "capybara"
 gem "rack"
 gem "nokogiri"
 gem "matts_tictactoe_core"
+gem 'travis'
 
 group :test, :development do
   gem "cucumber"
