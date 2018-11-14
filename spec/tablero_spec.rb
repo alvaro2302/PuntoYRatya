@@ -69,21 +69,7 @@ describe Tablero do
     end
 
    
-    it "cuando genere la tabla con filas 1 y columnas 4  ,deberia devolver  <tr>        
-                                                                                <td class=" "> </td>
-                                                                                <td class=" "> </td>
-                                                                                <td class=" "> </td> 
-                                                                                <td class="">  </td> 
-                                                                            </tr>"
-       table = Tablero().new(1,4)
-       codigoTablero=table.generarTablero()
-       expect(codigoTablero).to eq("<tr>        
-                                    <td class=" "> </td>
-                                    <td class=" "> </td>
-       <td class=" "> </td> 
-       <td class="">  </td> "
-   </tr>")
-    end
+    
 
                                                             
     
