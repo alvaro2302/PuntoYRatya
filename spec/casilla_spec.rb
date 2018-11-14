@@ -1,4 +1,4 @@
-require "./lib/casilla"
+require "casilla"
 
 describe Casilla do
 

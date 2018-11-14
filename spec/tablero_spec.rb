@@ -1,4 +1,4 @@
-require "./lib/tablero"
+require "tablero"
 describe Tablero do
 
 
