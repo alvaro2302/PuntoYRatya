@@ -15,6 +15,7 @@ group :test, :development do
   gem "cucumber"
   gem "capybara"
   gem "rspec"
+  gem "rack-test"
   gem "rake"
   gem "pry"
   gem "pry-nav"
