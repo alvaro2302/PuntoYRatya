@@ -1,3 +1,4 @@
+require "./lib/casilla"
 require "./lib/tablero"
 
 describe Tablero do
