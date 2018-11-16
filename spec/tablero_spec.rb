@@ -3,6 +3,25 @@ require "./lib/tablero"
 
 describe Tablero do
 
+    it "si genero una tabla de 1 fila y 1 columna deberia devolverme un codigo html de 2 filas y 1 columans" do
+        tablero  = Tablero.new(1,1)
+        expect(tablero.generarTabla).to eq("<tr>   <td class=""></td></tr>")
+
+    end
+
+    it "si genero una tabla de 2 fila y 2 columna deberia devolverme un codigo html de 2 filas y 1 columans" do
+        tablero  = Tablero.new(2,2)
+        expect(tablero.generarTabla).to eq("<tr>   <td class=""></td>   <td class=""></td></tr><tr>   <td class=""></td>   <td class=""></td></tr>")
+
+    end
+
+    it "si genero una tabla de 4 fila y 2 columna deberia devolverme un codigo html de 4 filas y 2 columans" do
+        tablero  = Tablero.new(4,2)
+        expect(tablero.generarTabla).to eq("<tr>   <td class=""></td>   <td class=""></td></tr><tr>   <td class=""></td>   <td class=""></td></tr><tr>   <td class=""></td>   <td class=""></td></tr><tr>   <td class=""></td>   <td class=""></td></tr>")
+
+    end
+
+   
 
     it "cuando marque derecha en la posicion '0,0' en una casilla ,si hay una alado deberia estar marcado izquierda" do
         tablero = Tablero.new(4,4)
@@ -68,6 +87,7 @@ describe Tablero do
     
     end
 
+    
 
 
 

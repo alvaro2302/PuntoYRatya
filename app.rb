@@ -2,12 +2,13 @@ require 'sinatra'
 require './lib/tablero'
 require './lib/jugador'
 
-tablero = Tablero.new(4,4)
+tablero = Tablero.new(2,4)
 filas = 4 
 enable :sessions
 primer_jugador = Jugador.new
 segundo_jugador = Jugador.new
 jugadorActual = ""
+
  
 get '/' do
   erb:bienvenida
@@ -28,7 +29,8 @@ post '/mostrarTablaVacia' do
   @filas = filas
   @matriz = tablero.obtenerMatriz
   jugadorActual= primer_jugador.nombre
-  @jugadoAhora = jugadorActual 
+  @jugadoAhora = jugadorActual
+  @tabla = tablero.generarTabla
   erb :tablaVacia
 end
 
@@ -103,7 +105,7 @@ post '/mostrarJugada' do
   @jugador1 = primer_jugador
   @jugador2 = segundo_jugador
   @jugadoAhora = jugadorActual 
-
+  @tabla = tablero.generarTabla
   erb :tablaVacia
 end
 

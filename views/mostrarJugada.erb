@@ -70,19 +70,8 @@ table,th,td{
    
    <% cont=0 %>
   <table id="tabla" name="tabla" style align="center" width= "50%" height="50%";>
-    <% @matriz.each do|fila|%>
-      <tr>
-        <% fila.each do|columna|%>
-          <td class="
-            <%= 'td-border-top' if columna.ladoArriba() %> 
-            <%= 'td-border-left' if columna.LadoIzquierda() %> 
-            <%= 'td-border-bottom' if columna.LadoAbajo() %> 
-            <%= 'td-border-right' if columna.LadoDerecha() %> 
-          ">
-          </td>
-        <% end %>
-      </tr> 
-    <% end %>
+    <%= @tabla %>
+      
   </table>  
   <br><br>
   <form method="post" action="/mostrarJugada">
