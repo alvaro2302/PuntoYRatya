@@ -16,22 +16,7 @@ class Tablero
         return @columnas
     end
     
-    def generarTabla
-        htmlTable = ""
-        for fila in 1..@filas
-            tr = "<tr>"
-            htmlTable = htmlTable +tr
-            for columna in 1..@columnas
-               td = "   <td class=""></td>"
-               htmlTable = htmlTable + td
-            end
-            trSalida = "</tr>"
-            htmlTable = htmlTable + trSalida
-        end
 
-        return htmlTable
-        
-    end
     def marcarDerecha(fila,columna)
         @matriz[fila][columna].seleccionarLado("Derecha")
         if @matriz[fila][columna].LadoDerecha()
@@ -75,5 +60,7 @@ class Tablero
     def obtenerMatriz
         return @matriz
     end
+
+
     
 end

@@ -8,7 +8,7 @@ class Casilla
         @LadoIzquierda = false
     end  
 
-    def ladoArriba()
+    def LadoArriba()
         return @LadoArriba
     end
 
