@@ -9,7 +9,15 @@ class Game
      @jugadorActual = 1
      @jugadorOne = Jugador.new()
      @jugadorTwo = Jugador.new()
+     @jugadorTwo.cambiar_turno(false)
+    end
 
+    def jugadorOne()
+        @jugadorOne
+    end
+
+    def jugadorTwo()
+        @jugadorTwo
     end
 
     def generarTabla
@@ -90,9 +98,13 @@ class Game
     def cambiarTurno()
         if @jugadorActual == @numeroDejugadores
             @jugadorActual = 1
+            @jugadorOne.cambiar_turno(true)
+            @jugadorTwo.cambiar_turno(false)
         else
             turno = @jugadorActual +1
             @jugadorActual= turno
+            @jugadorOne.cambiar_turno(false)
+            @jugadorTwo.cambiar_turno(true)
         end
     end
 
