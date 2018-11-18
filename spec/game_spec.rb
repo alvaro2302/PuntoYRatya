@@ -78,7 +78,21 @@ describe Game do
         expect(game.generarTabla).to eq("<tr>   <td class=' td-border-top td-border-bottom td-border-right td-border-left'></td>   <td class=' td-border-left'></td></tr><tr>   <td class=' td-border-top'></td>   <td class=''></td></tr><tr>   <td class=''></td>   <td class=''></td></tr><tr>   <td class=''></td>   <td class=''></td></tr>")
     end
 
-    it ""
+    it "si tengo 2 jugadores en el juego al hacer una jugada deberia cambiar el turno del segundo jugador deveria devolver true y el nombre del segundo jugador" do
+        tablero = tablero  = Tablero.new(4,2)
+        game = Game.new(tablero)
+        game.darNombre(1,"alejandro")
+        game.darNombre(2,"alex")
+        #el jugador 1 esta dando su jugada
+        game.darJugada(0,0,"Arriba")
+        #el jugador 2 esta dando su jugada
+        game.darJugada(0,0,"Derecha")
+        #el jugador actual deberia ser el segundo jugador
+        jugadorActual = game.obtenerJugadorActual()
+        expect(jugadorActual.nombre).to eq("alex")
+
+
+    end
 
 
 
