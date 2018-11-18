@@ -1,10 +1,14 @@
 require_relative './tablero'
+require_relative './jugador'
 class Game
-    attr_accessor :tablero, :matriz
+    attr_accessor :tablero, :matriz, :jugadorActual, :jugadorOne, :jugadorTwo, :numeroDejugadores
     def initialize(tablero)
      @tablero = tablero
      @matriz = tablero.obtenerMatriz
-     
+     @numeroDejugadores = 2 
+     @jugadorActual = 1
+     @jugadorOne = Jugador.new()
+     @jugadorTwo = Jugador.new()
 
     end
 
@@ -55,8 +59,49 @@ class Game
         if lado == "Izquierda"
             tablero.marcarIzquierda(fila,columna)
         end
+        casilla = @tablero.obtenerCasilla(fila,columna)
+        if casilla.estaLLena()
+            jugadorActual = obtenerJugador(@jugadorActual)
+            jugadorActual.aumentar_punto()
+        end
+        
+        cambiarTurno()
 
     end
+
+    def darNombre(numeroJugador,nombreJugador)
+        if numeroJugador==1
+            @jugadorOne.poner_nombre(nombreJugador)
+        end
+        if numeroJugador==2
+            @jugadorTwo.poner_nombre(nombreJugador)
+        end
+    end
+
+    def obtenerJugador(numero)
+        if numero == 1
+            return @jugadorOne
+        end
+        if numero == 2
+            return @jugadorTwo
+        end
+    end
+
+    def cambiarTurno()
+        if @jugadorActual == @numeroDejugadores
+            @jugadorActual = 1
+        else
+            turno = @jugadorActual +1
+            @jugadorActual= turno
+        end
+    end
+
+    def obtenerJugadorActual()
+        return @jugadorActual
+    end
+
+
+    
 
 
 

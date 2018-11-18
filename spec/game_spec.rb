@@ -78,21 +78,103 @@ describe Game do
         expect(game.generarTabla).to eq("<tr>   <td class=' td-border-top td-border-bottom td-border-right td-border-left'></td>   <td class=' td-border-left'></td></tr><tr>   <td class=' td-border-top'></td>   <td class=''></td></tr><tr>   <td class=''></td>   <td class=''></td></tr><tr>   <td class=''></td>   <td class=''></td></tr>")
     end
 
-    it "si tengo 2 jugadores en el juego al hacer una jugada deberia cambiar el turno del segundo jugador deveria devolver true y el nombre del segundo jugador" do
+    it "si añado 2 jugadores con su nombre  en el juego deberia devolver los nombres de los 2 jugadores " do
         tablero = tablero  = Tablero.new(4,2)
         game = Game.new(tablero)
+        #añadiendo nombre al primer jugador
         game.darNombre(1,"alejandro")
+        #añadiendo nombre al segundo jugador
         game.darNombre(2,"alex")
-        #el jugador 1 esta dando su jugada
-        game.darJugada(0,0,"Arriba")
-        #el jugador 2 esta dando su jugada
-        game.darJugada(0,0,"Derecha")
-        #el jugador actual deberia ser el segundo jugador
-        jugadorActual = game.obtenerJugadorActual()
-        expect(jugadorActual.nombre).to eq("alex")
+        jugadorOne = game.obtenerJugador(1)
+        jugadorTwo = game.obtenerJugador(2)
+        expect(jugadorOne.nombre).to eq("alejandro")
+        expect(jugadorTwo.nombre).to eq("alex")
+    end
 
+    it "si añado 2 jugadores con su nombre  en el juego deberia devolver los nombres de los 2 jugadores " do
+        tablero = tablero  = Tablero.new(4,2)
+        game = Game.new(tablero)
+        #añadiendo nombre al primer jugador
+        game.darNombre(1,"alejandro")
+        #añadiendo nombre al segundo jugador
+        game.darNombre(2,"alex")
+        jugadorOne = game.obtenerJugador(1)
+        jugadorTwo = game.obtenerJugador(2)
+        expect(jugadorOne.nombre).to eq("alejandro")
+        expect(jugadorTwo.nombre).to eq("alex")
+    end
+
+    it "si tengo 2 jugadores y cuando este en el turno del primero jugador y se cambie el turno deberia cambiar a 2" do
+        tablero = tablero  = Tablero.new(4,2)
+        game = Game.new(tablero)
+        game.cambiarTurno()
+        jugadorActual  = game.obtenerJugadorActual()
+        expect(jugadorActual).to eq(2)
 
     end
+
+    it "si tengo 2 jugadores y cuando este en el turno del segundo jugador y se cambie el turno deberia cambiar a 1" do
+        tablero = tablero  = Tablero.new(4,2)
+        game = Game.new(tablero)
+        game.cambiarTurno()
+        game.cambiarTurno()
+        jugadorActual  = game.obtenerJugadorActual()
+        expect(jugadorActual).to eq(1)
+        
+    end
+    it "si se da una jugada del primer jugador  debe devolver  el jugador actual que seria el segundo jugador " do
+        tablero = tablero  = Tablero.new(4,2)
+        game = Game.new(tablero)
+        #añadiendo nombre al primer jugador
+        game.darNombre(1,"alejandro")
+        #añadiendo nombre al segundo jugador
+        game.darNombre(2,"alex")
+        game.darJugada(0,0,"Arriba")
+        numeroDeJugadorActual = game.obtenerJugadorActual()
+        jugadorActual = game.obtenerJugador(numeroDeJugadorActual)
+        expect(jugadorActual.nombre).to eq("alex")
+        expect(jugadorActual.puntos()).to eq(0)
+    end
+    it "si se da una jugada del segundo jugador  debe devolver  el jugador actual que seria el primer jugador " do
+        tablero = tablero  = Tablero.new(4,2)
+        game = Game.new(tablero)
+        #añadiendo nombre al primer jugador
+        game.darNombre(1,"alejandro")
+        #añadiendo nombre al segundo jugador
+        game.darNombre(2,"alex")
+        game.darJugada(0,0,"Arriba")
+        game.darJugada(0,0,"Derecha")
+        numeroDeJugadorActual = game.obtenerJugadorActual()
+        jugadorActual = game.obtenerJugador(numeroDeJugadorActual)
+        expect(jugadorActual.nombre).to eq("alejandro")
+        expect(jugadorActual.puntos()).to eq(0)
+    end
+
+    it "si se da una jugada del segundo jugador y llena el cuadro debe aumentar un punto  al primer jugador " do
+        tablero = tablero  = Tablero.new(4,2)
+        game = Game.new(tablero)
+        #añadiendo nombre al primer jugador
+        game.darNombre(1,"alejandro")
+        #añadiendo nombre al segundo jugador
+        game.darNombre(2,"alex")
+        game.darJugada(0,0,"Arriba")
+        game.darJugada(0,0,"Derecha")
+        game.darJugada(0,0,"Abajo")
+        game.darJugada(0,0,"Izquierda")
+        jugadorActual = game.obtenerJugador(2)
+        expect(jugadorActual.nombre).to eq("alex")
+        expect(jugadorActual.puntos()).to eq(1)
+        
+    end
+
+    
+
+    
+
+
+  
+
+
 
 
 

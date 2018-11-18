@@ -42,6 +42,7 @@ post '/mostrarJugada' do
   
   seleccion = params[:selection]
   game.darJugada(@fila.to_i,@columna.to_i,seleccion)
+  
   @filas = filas
   @matriz = tablero.obtenerMatriz
 
@@ -57,8 +58,8 @@ post '/mostrarJugada' do
     segundo_jugador.cambiar_turno(false)
   end
 
-  @jugador1 = primer_jugador
-  @jugador2 = segundo_jugador
+  @jugador1 = game.obtenerJugador(1)
+  @jugador2 = game.obtenerJugador(2)
   @jugadoAhora = jugadorActual 
   @tabla = game.generarTabla
   erb :tablaVacia
