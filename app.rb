@@ -1,9 +1,11 @@
 require 'sinatra'
 require './lib/tablero'
 require './lib/jugador'
+require './lib/game'
 
-tablero = Tablero.new(2,4)
+tablero = Tablero.new(4,4)
 filas = 4 
+game = Game.new(tablero)
 enable :sessions
 primer_jugador = Jugador.new
 segundo_jugador = Jugador.new
@@ -30,7 +32,7 @@ post '/mostrarTablaVacia' do
   @matriz = tablero.obtenerMatriz
   jugadorActual= primer_jugador.nombre
   @jugadoAhora = jugadorActual
-  @tabla = tablero.generarTabla
+  @tabla = game.generarTabla
   erb :tablaVacia
 end
 
@@ -39,54 +41,7 @@ post '/mostrarJugada' do
   @columna = params[:columna].to_i
   
   seleccion = params[:selection]
-  if seleccion == "Arriba"
-    tablero.marcarArriba(@fila, @columna)
-    casilla = tablero.obtenerCasilla(@fila, @columna)
-    if casilla.estaLLena()
-      if jugadorActual == primer_jugador.nombre 
-        primer_jugador.aumentar_punto()
-      end
-      if jugadorActual == segundo_jugador.nombre 
-        segundo_jugador.aumentar_punto()
-      end
-    end
-  end
-  if seleccion == "Derecha"
-    tablero.marcarDerecha(@fila,@columna)
-    casilla = tablero.obtenerCasilla(@fila, @columna)
-    if casilla.estaLLena()
-      if jugadorActual == primer_jugador.nombre 
-        primer_jugador.aumentar_punto()
-      end
-      if jugadorActual== segundo_jugador.nombre 
-        segundo_jugador.aumentar_punto()
-      end
-    end
-  end 
-  if seleccion == "Izquierda"
-    tablero.marcarIzquierda(@fila,@columna)
-    casilla = tablero.obtenerCasilla(@fila, @columna)
-    if casilla.estaLLena()
-      if jugadorActual== primer_jugador.nombre 
-        primer_jugador.aumentar_punto()
-      end
-      if jugadorActual == segundo_jugador.nombre 
-        segundo_jugador.aumentar_punto()
-      end
-    end
-  end 
-  if seleccion == "Abajo"
-    tablero.marcarAbajo(@fila,@columna)
-    casilla = tablero.obtenerCasilla(@fila, @columna)
-    if casilla.estaLLena()
-      if jugadorActual == primer_jugador.nombre 
-        primer_jugador.aumentar_punto()
-      end
-      if jugadorActual == segundo_jugador.nombre 
-        segundo_jugador.aumentar_punto()
-      end
-    end
-  end 
+  game.darJugada(@fila.to_i,@columna.to_i,seleccion)
   @filas = filas
   @matriz = tablero.obtenerMatriz
 
@@ -105,7 +60,7 @@ post '/mostrarJugada' do
   @jugador1 = primer_jugador
   @jugador2 = segundo_jugador
   @jugadoAhora = jugadorActual 
-  @tabla = tablero.generarTabla
+  @tabla = game.generarTabla
   erb :tablaVacia
 end
 
