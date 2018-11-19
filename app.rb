@@ -7,9 +7,6 @@ tablero = Tablero.new(4,4)
 
 game = Game.new(tablero)
 enable :sessions
-primer_jugador = Jugador.new
-segundo_jugador = Jugador.new
-jugadorActual = ""
 
  
 get '/' do
