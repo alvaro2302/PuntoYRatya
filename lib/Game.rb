@@ -3,13 +3,14 @@ require_relative './jugador'
 class Game
     attr_accessor :tablero, :matriz, :jugadorActual, :jugadorOne, :jugadorTwo, :numeroDejugadores, :GameOver
     def initialize(tablero)
-     @tablero = tablero
-     @matriz = tablero.obtenerMatriz
-     @numeroDejugadores = 2 
-     @jugadorActual = 1
-     @jugadorOne = Jugador.new()
-     @jugadorTwo = Jugador.new()
-     @GameOver = false
+        @tablero = tablero
+        @matriz = tablero.obtenerMatriz
+        @numeroDejugadores = 2 
+        @jugadorActual = 1
+        @jugadorOne = Jugador.new()
+        @jugadorTwo = Jugador.new()
+        @GameOver = false
+    end
 
     def jugadorTwo()
         @jugadorTwo
@@ -120,13 +121,4 @@ class Game
     def GameOver
         return @GameOver
     end
-
-
-    
-
-
-
-
-
-
 end
