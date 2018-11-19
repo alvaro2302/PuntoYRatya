@@ -1,7 +1,7 @@
 require_relative './tablero'
 require_relative './jugador'
 class Game
-    attr_accessor :tablero, :matriz, :jugadorActual, :jugadorOne, :jugadorTwo, :numeroDejugadores
+    attr_accessor :tablero, :matriz, :jugadorActual, :jugadorOne, :jugadorTwo, :numeroDejugadores, :GameOver
     def initialize(tablero)
      @tablero = tablero
      @matriz = tablero.obtenerMatriz
@@ -9,6 +9,7 @@ class Game
      @jugadorActual = 1
      @jugadorOne = Jugador.new()
      @jugadorTwo = Jugador.new()
+     @GameOver = false
 
     end
 
@@ -47,8 +48,10 @@ class Game
     end
 
     def darJugada(fila,columna,lado)
+      
         if lado == "Arriba"
             tablero.marcarArriba(fila,columna)
+            
         end
         if lado == "Abajo"
             tablero.marcarAbajo(fila,columna)
@@ -65,6 +68,11 @@ class Game
             jugadorActual.aumentar_punto()
         end
         
+        
+
+        if @tablero.jugadasRestantes()==0
+            @GameOver = true
+        end
         cambiarTurno()
 
     end
@@ -98,6 +106,13 @@ class Game
 
     def obtenerJugadorActual()
         return @jugadorActual
+    end
+    def obtenerJugadasRestantes()
+        return @tablero.jugadasRestantes()
+    end
+
+    def GameOver
+        return @GameOver
     end
 
 

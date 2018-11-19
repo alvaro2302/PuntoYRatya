@@ -166,6 +166,44 @@ describe Game do
         expect(jugadorActual.puntos()).to eq(1)
         
     end
+    
+  
+
+    it "si doy una jugada deberia restarse la cantidad de jugadas en el tablero a 11" do
+        tablero = tablero  = Tablero.new(2,2)
+        game = Game.new(tablero)
+        #añadiendo nombre al primer jugador
+        game.darNombre(1,"alejandro")
+        #añadiendo nombre al segundo jugador
+        game.darNombre(2,"alex")
+        game.darJugada(0,0,"Arriba")
+        jugadasRestantes = game.obtenerJugadasRestantes()
+        expect(jugadasRestantes).to eq(11)
+    end
+
+    it "si lleno toda la tabla con jugadas deberia cambiar a true gameOver" do
+        tablero = tablero  = Tablero.new(2,2)
+        game = Game.new(tablero)
+        #añadiendo nombre al primer jugador
+        game.darNombre(1,"alejandro")
+        #añadiendo nombre al segundo jugador
+        game.darNombre(2,"alex")
+        game.darJugada(0,0,"Arriba")
+        game.darJugada(0,0,"Izquierda")
+        game.darJugada(0,0,"Abajo")
+        game.darJugada(0,0,"Derecha")
+        game.darJugada(0,1,"Arriba")
+        game.darJugada(0,1,"Derecha")
+        game.darJugada(0,1,"Abajo")
+        game.darJugada(1,0,"Izquierda")
+        game.darJugada(1,0,"Abajo")
+        game.darJugada(1,0,"Derecha")
+        game.darJugada(1,1,"Derecha")
+        game.darJugada(1,1,"Abajo")
+        expect(game.GameOver).to eq(true)
+
+
+    end
 
     
 
