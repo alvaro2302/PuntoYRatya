@@ -4,7 +4,7 @@ require './lib/jugador'
 require './lib/game'
 
 tablero = Tablero.new(4,4)
-filas = 4 
+
 game = Game.new(tablero)
 enable :sessions
 
@@ -17,14 +17,22 @@ get '/mostrarUserName' do
    erb :userName
 end
 
+
+
+
+
 post '/mostrarTablaVacia' do  
   game.darNombre(1,params[:first_user_name])
   game.darNombre(2,params[:second_user_name])
 
+  
+
   @jugador1 = game.obtenerJugador(1)
   @jugador2 = game.obtenerJugador(2)
-  @filas = filas
-  @matriz = tablero.obtenerMatriz
+  @numeroJugadorActual = game.obtenerJugadorActual()
+  @jugadorActual = game.obtenerJugador(@numeroJugadorActual)
+  
+  
   @tabla = game.generarTabla
   erb :tablaVacia
 end
@@ -36,12 +44,19 @@ post '/mostrarJugada' do
   seleccion = params[:selection]
   game.darJugada(@fila.to_i,@columna.to_i,seleccion)
   
-  @filas = filas
-  @matriz = tablero.obtenerMatriz
+
   
+
   @jugador1 = game.obtenerJugador(1)
   @jugador2 = game.obtenerJugador(2)
+  @numeroJugadorActual = game.obtenerJugadorActual()
+  @jugadorActual = game.obtenerJugador(@numeroJugadorActual)
   @tabla = game.generarTabla
-  erb :tablaVacia
+  @gameOver = game.GameOver
+  if @gameOver ==false
+    erb :tablaVacia
+  else
+    erb:gameover
+  end
 end
 
