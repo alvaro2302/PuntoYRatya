@@ -1,5 +1,5 @@
-require_relative './tablero'
-require_relative './jugador'
+require_relative './lib/tablero'
+require_relative './lib/jugador'
 class Game
     attr_accessor :tablero, :matriz, :jugadorActual, :jugadorOne, :jugadorTwo, :numeroDejugadores, :GameOver
     def initialize(tablero)
@@ -120,13 +120,4 @@ class Game
     def GameOver
         return @GameOver
     end
-
-
-    
-
-
-
-
-
-
 end
