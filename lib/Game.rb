@@ -59,7 +59,7 @@ class Game
       
         if lado == "Arriba"
             tablero.marcarArriba(fila,columna)
-            
+            ponerNumeroAJugadaArriba(@jugadorActual,fila,columna)
         end
         if lado == "Abajo"
             tablero.marcarAbajo(fila,columna)
@@ -121,6 +121,11 @@ class Game
     end
     def obtenerJugadasRestantes()
         return @tablero.jugadasRestantes()
+    end
+
+    def ponerNumeroAJugadaArriba(numeroJugador,fila,columna)
+        casilla = @tablero.obtenerCasilla(fila,columna)
+        casilla.cambiarNumeroJugadorLadoArriba(numeroJugador)
     end
 
     def GameOver

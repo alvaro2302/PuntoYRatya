@@ -205,6 +205,8 @@ describe Game do
         expect(game.GameOver).to eq(true)
         
     end
+    
+
     it "si se da una jugada en la casilla 0,0 a Arriba el primer jugador deberia cambiar con 1 en numeroLadoArriba" do
         tablero = tablero  = Tablero.new(2,2)
         game = Game.new(tablero)
@@ -213,7 +215,8 @@ describe Game do
         #añadiendo nombre al segundo jugador
         game.darNombre(2,"alex")
         game.darJugada(0,0,"Arriba")
-        casillaMarcadaArriba  = game.
+        casillaMarcadaArriba  = tablero.obtenerCasilla(0,0)
+        expect(casillaMarcadaArriba.numeroJugadorLadoArriba).to eq(1)
         
     end
 
