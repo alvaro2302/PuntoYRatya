@@ -78,6 +78,8 @@ describe Game do
         expect(game.generarTabla).to eq("<tr>   <td class=' td-border-top td-border-bottom td-border-right td-border-left'></td>   <td class=' td-border-left'></td></tr><tr>   <td class=' td-border-top'></td>   <td class=''></td></tr><tr>   <td class=''></td>   <td class=''></td></tr><tr>   <td class=''></td>   <td class=''></td></tr>")
     end
 
+    
+
     it "si añado 2 jugadores con su nombre  en el juego deberia devolver los nombres de los 2 jugadores " do
         tablero = tablero  = Tablero.new(4,2)
         game = Game.new(tablero)
@@ -201,9 +203,22 @@ describe Game do
         game.darJugada(1,1,"Derecha")
         game.darJugada(1,1,"Abajo")
         expect(game.GameOver).to eq(true)
-
-
+        
     end
+    it "si se da una jugada en la casilla 0,0 a Arriba el primer jugador deberia cambiar con 1 en numeroLadoArriba" do
+        tablero = tablero  = Tablero.new(2,2)
+        game = Game.new(tablero)
+        #añadiendo nombre al primer jugador
+        game.darNombre(1,"alejandro")
+        #añadiendo nombre al segundo jugador
+        game.darNombre(2,"alex")
+        game.darJugada(0,0,"Arriba")
+        casillaMarcadaArriba  = game.
+        
+    end
+
+  
+
 
     
 

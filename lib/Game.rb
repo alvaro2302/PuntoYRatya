@@ -26,15 +26,20 @@ class Game
                 style = ""
                 td = "   <td class="+style +"></td>"
                 if columna.LadoArriba()
-                    style =  style+" td-border-top"
+                    
+                  style =  style+" td-border-top"
+                    
                 end
                 if columna.LadoAbajo()
                     style =  style + " td-border-bottom"
                 end
                 if columna.LadoDerecha()
                     style = style+ " td-border-right"
+                    
+                    
                 end
                 if columna.LadoIzquierda()
+                    
                     style = style +" td-border-left"
                 end
                 style = "'"+style+"'"
