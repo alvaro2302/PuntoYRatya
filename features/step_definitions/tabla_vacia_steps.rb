@@ -1,5 +1,5 @@
 Given("Estoy en la pagina tablaVacia") do
-    visit('/tablaVacia')
+    visit('/mostrarTablaVacia')
   end
   
   Then("veo la tabla vacia") do

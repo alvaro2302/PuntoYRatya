@@ -21,7 +21,7 @@ class App < Sinatra::Base
 
 
 
-  post '/mostrarTablaVacia' do  
+  get '/mostrarTablaVacia' do  
     game.darNombre(1,params[:first_user_name])
     game.darNombre(2,params[:second_user_name])
 
@@ -37,7 +37,7 @@ class App < Sinatra::Base
     erb :tablaVacia
   end
 
-  post '/mostrarJugada' do
+  get '/mostrarJugada' do
     @fila = params[:fila].to_i
     @columna = params[:columna].to_i
     
