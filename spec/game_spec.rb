@@ -232,6 +232,20 @@ describe Game do
         expect(casillaMarcada.numeroJugadorLadoAbajo).to eq(2)
         
     end
+    it "si se da una jugada en la casilla 0,0 a Izquierda el primer jugador deberia cambiar 1 en numeroLadoIzquierda" do
+        tablero = tablero  = Tablero.new(2,2)
+        game = Game.new(tablero)
+        #añadiendo nombre al primer jugador
+        game.darNombre(1,"alejandro")
+        #añadiendo nombre al segundo jugador
+        game.darNombre(2,"alex")
+        game.darJugada(0,0,"Arriba")
+        game.darJugada(0,0,"Abajo")
+        game.darJugada(0,0,"Izquierda")
+        casillaMarcada = tablero.obtenerCasilla(0,0)
+        expect(casillaMarcada.numeroJugadorLadoIzquierda).to eq(1)
+
+    end
     
 
 
