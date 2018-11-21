@@ -5,7 +5,7 @@ Given("Estoy en la pagina tablaVacia") do
   Then("veo la tabla vacia") do
     expect(page).to have_table('tabla')
   end
-  
+=begin
   Then("Veo el nombre del primer jugador {string}") do |string|
     expect(page).to have_content(string)
   end
@@ -17,3 +17,4 @@ Given("Estoy en la pagina tablaVacia") do
   Then("Al lado del primer jugador veo el mensaje {string}") do |string|
     expect(page).to have_content(string)
   end
+=end
