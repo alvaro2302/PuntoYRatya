@@ -76,9 +76,5 @@ class Tablero
         jugadaRestada =  @jugadasRestantes-1
         @jugadasRestantes = jugadaRestada
     end
-    
-    
 
-
-    
 end

@@ -147,7 +147,7 @@ describe Tablero do
         jugadasRestantes = game.obtenerJugadasRestantes()
         expect(jugadasRestantes).to eq(11)
     end
-   
+    
 
 
 

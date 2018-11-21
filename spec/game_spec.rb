@@ -215,10 +215,25 @@ describe Game do
         #añadiendo nombre al segundo jugador
         game.darNombre(2,"alex")
         game.darJugada(0,0,"Arriba")
-        casillaMarcadaArriba  = tablero.obtenerCasilla(0,0)
-        expect(casillaMarcadaArriba.numeroJugadorLadoArriba).to eq(1)
+        casillaMarcada  = tablero.obtenerCasilla(0,0)
+        expect(casillaMarcada.numeroJugadorLadoArriba).to eq(1)
         
     end
+    it "si se da una jugada en la casilla 0,0 a Abajo el segundo jugador deberia cambiar 2 en numeroLadoAbajo " do
+        tablero = tablero  = Tablero.new(2,2)
+        game = Game.new(tablero)
+        #añadiendo nombre al primer jugador
+        game.darNombre(1,"alejandro")
+        #añadiendo nombre al segundo jugador
+        game.darNombre(2,"alex")
+        game.darJugada(0,0,"Arriba")
+        game.darJugada(0,0,"Abajo")
+        casillaMarcada = tablero.obtenerCasilla(0,0)
+        expect(casillaMarcada.numeroJugadorLadoAbajo).to eq(2)
+        
+    end
+    
+
 
   
 

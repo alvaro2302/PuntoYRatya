@@ -6,7 +6,10 @@ class Casilla
         @LadoAbajo = false
         @LadoDerecha = false
         @LadoIzquierda = false
-        @numeroJugadorLadoArriba=0
+        @numeroJugadorLadoArriba = 0
+        @numeroJugadorLadoAbajo = 0
+        @numeroJugadorLadoIzquierda = 0
+        @numeroJugadorLadoDerecha = 0
     end  
 
     
@@ -32,8 +35,26 @@ class Casilla
     def numeroJugadorLadoArriba
         return @numeroJugadorLadoArriba
     end
+    def numeroJugadorLadoAbajo
+        return @numeroJugadorLadoAbajo
+    end
+    def numeroJugadorLadoIzquierda
+        return @numeroJugadorLadoIzquierda
+    end
+    def numeroJugadorLadoDerecha
+        return @numeroJugadorLadoDerecha
+    end
     def cambiarNumeroJugadorLadoArriba(numero)
         @numeroJugadorLadoArriba = numero
+    end
+    def cambiarNumeroJugadorLadoAbajo(numero)
+        @numeroJugadorLadoAbajo = numero
+    end
+    def cambiarNumeroJugadorLadoIzquierda(numero)
+        @numeroJugadorLadoIzquierda = numero
+    end
+    def cambiarNumeroJugadorLadoDerecha(numero)
+        @numeroJugadorLadoDerecha = numero
     end
     
     def obtenerLado(filaInicial, columnaInicial, filaFinal,columnaFinal)

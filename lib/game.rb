@@ -26,7 +26,7 @@ class Game
                 style = ""
                 td = "   <td class="+style +"></td>"
                 if columna.LadoArriba()
-                    
+                  estiloJugador =   
                   style =  style+" td-border-top"
                     
                 end
@@ -63,12 +63,15 @@ class Game
         end
         if lado == "Abajo"
             tablero.marcarAbajo(fila,columna)
+            ponerNumeroAJugadaAbajo(@jugadorActual,fila,columna)
         end
         if lado == "Derecha"
             tablero.marcarDerecha(fila,columna)
+            ponerNumeroAJugadaDerecha(@jugadorActual,fila,columna)
         end
         if lado == "Izquierda"
             tablero.marcarIzquierda(fila,columna)
+            ponerNumeroAJugadaIzquierda(@jugadorActual,fila,columna)
         end
         casilla = @tablero.obtenerCasilla(fila,columna)
         if casilla.estaLLena()
@@ -126,6 +129,19 @@ class Game
     def ponerNumeroAJugadaArriba(numeroJugador,fila,columna)
         casilla = @tablero.obtenerCasilla(fila,columna)
         casilla.cambiarNumeroJugadorLadoArriba(numeroJugador)
+    end
+    def ponerNumeroAJugadaAbajo(numeroJugador,fila,columna)
+        casilla = @tablero.obtenerCasilla(fila,columna)
+        casilla.cambiarNumeroJugadorLadoAbajo(numeroJugador)
+    end
+
+    def ponerNumeroAJugadaIzquierda(numeroJugador,fila,columna)
+        casilla = @tablero.obtenerCasilla(fila,columna)
+        casilla.cambiarNumeroJugadorLadoIzquierda(numeroJugador)
+    end
+    def ponerNumeroAJugadaDerecha(numeroJugador,fila,columna)
+        casilla = @tablero.obtenerCasilla(fila,columna)
+        casilla.cambiarNumeroJugadorLadoDerecha(numeroJugador)
     end
 
     def GameOver
