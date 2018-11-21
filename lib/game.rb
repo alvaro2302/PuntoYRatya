@@ -26,15 +26,20 @@ class Game
                 style = ""
                 td = "   <td class="+style +"></td>"
                 if columna.LadoArriba()
-                    style =  style+" td-border-top"
+                    
+                  style =  style+" td-border-top"
+                    
                 end
                 if columna.LadoAbajo()
                     style =  style + " td-border-bottom"
                 end
                 if columna.LadoDerecha()
                     style = style+ " td-border-right"
+                    
+                    
                 end
                 if columna.LadoIzquierda()
+                    
                     style = style +" td-border-left"
                 end
                 style = "'"+style+"'"
@@ -54,7 +59,7 @@ class Game
       
         if lado == "Arriba"
             tablero.marcarArriba(fila,columna)
-            
+            ponerNumeroAJugadaArriba(@jugadorActual,fila,columna)
         end
         if lado == "Abajo"
             tablero.marcarAbajo(fila,columna)
@@ -116,6 +121,11 @@ class Game
     end
     def obtenerJugadasRestantes()
         return @tablero.jugadasRestantes()
+    end
+
+    def ponerNumeroAJugadaArriba(numeroJugador,fila,columna)
+        casilla = @tablero.obtenerCasilla(fila,columna)
+        casilla.cambiarNumeroJugadorLadoArriba(numeroJugador)
     end
 
     def GameOver
