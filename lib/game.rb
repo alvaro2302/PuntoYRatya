@@ -26,21 +26,26 @@ class Game
                 style = ""
                 td = "   <td class="+style +"></td>"
                 if columna.LadoArriba()
-                  estiloJugador =   
+                  
                   style =  style+" td-border-top"
                     
                 end
                 if columna.LadoAbajo()
-                    style =  style + " td-border-bottom"
+                    numeroDeJugador = columna.numeroJugadorLadoAbajo
+                    styleJugador = obtenerEstiloJugadorAbajo(numeroDeJugador)
+                    style =  style + styleJugador
                 end
                 if columna.LadoDerecha()
+
                     style = style+ " td-border-right"
                     
                     
                 end
                 if columna.LadoIzquierda()
                     
-                    style = style +" td-border-left"
+                    numeroDeJugador = columna.numeroJugadorLadoIzquierda
+                    styleJugador = obtenerEstiloJugadorIzquierda(numeroDeJugador)
+                    style = style +styleJugador
                 end
                 style = "'"+style+"'"
                 td = "   <td class="+style +"></td>"
@@ -55,6 +60,35 @@ class Game
         
     end
 
+    def obtenerEstiloJugadorIzquierda(numeroJugador)
+
+        estilo=""
+        if numeroJugador == 1 
+            estilo=" td-border-left"
+        end
+        if numeroJugador == 2
+            estilo=" jugador2Izquierda"
+        end
+
+        return estilo
+
+    end
+
+    def obtenerEstiloJugadorAbajo(numeroJugador)
+
+        estilo=""
+        if numeroJugador == 1 
+            estilo=" td-border-bottom"
+        end
+        if numeroJugador == 2
+            estilo=" jugador2Abajo"
+        end
+
+        return estilo
+
+    end
+
+
     def darJugada(fila,columna,lado)
       
         if lado == "Arriba"
@@ -64,10 +98,18 @@ class Game
         if lado == "Abajo"
             tablero.marcarAbajo(fila,columna)
             ponerNumeroAJugadaAbajo(@jugadorActual,fila,columna)
+            if fila < tablero.filas()-1
+                ponerNumeroAJugadaArriba(@jugadorActual,fila+1,columna)
+                
+            end
         end
         if lado == "Derecha"
             tablero.marcarDerecha(fila,columna)
             ponerNumeroAJugadaDerecha(@jugadorActual,fila,columna)
+            if columna < tablero.columnas()-1
+                ponerNumeroAJugadaIzquierda(@jugadorActual,fila,columna+1)
+            end
+
         end
         if lado == "Izquierda"
             tablero.marcarIzquierda(fila,columna)
