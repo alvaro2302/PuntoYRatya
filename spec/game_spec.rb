@@ -146,6 +146,27 @@ describe Game do
         expect(jugadorTwo.nombre).to eq("alex")
     end
 
+    it "si añado 3 jugadores con su nombre  en el juego deberia devolver los nombres  de los 3 jugadores" do
+        tablero = tablero  = Tablero.new(4,2)
+        game = Game.new(tablero)
+        game.selecionarCantidadDeJugadores(3)
+        #añadiendo nombre al primer jugador
+        game.darNombre(1,"alejandro")
+        #añadiendo nombre al segundo jugador
+        game.darNombre(2,"alex")
+        #añadiendo nombre al tercer jugador 
+        game.darNombre(3,"juan")
+        jugadorOne = game.obtenerJugador(1)
+        jugadorTwo = game.obtenerJugador(2)
+        jugadorThree = game.obtenerJugador(3)
+        expect(jugadorOne.nombre).to eq("alejandro")
+        expect(jugadorTwo.nombre).to eq("alex")
+        expect(jugadorThree.nombre).to eq("juan")
+
+
+
+    end
+
     it "si tengo 2 jugadores y cuando este en el turno del primero jugador y se cambie el turno deberia cambiar a 2" do
         tablero = tablero  = Tablero.new(4,2)
         game = Game.new(tablero)
@@ -301,6 +322,8 @@ describe Game do
         expect(casillaMarcada.numeroJugadorLadoDerecha).to eq(2)
 
     end
+
+    
     
 
 

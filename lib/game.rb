@@ -9,6 +9,8 @@ class Game
         @jugadorActual = 1
         @jugadorOne = Jugador.new()
         @jugadorTwo = Jugador.new()
+        @jugadorThree = Jugador.new()
+        @jugadorFour = Jugador.new()
         @GameOver = false
     end
 
@@ -169,6 +171,9 @@ class Game
         if numeroJugador==2
             @jugadorTwo.poner_nombre(nombreJugador)
         end
+        if numeroJugador==3
+            @jugadorThree.poner_nombre(nombreJugador)
+        end
     end
 
     def obtenerJugador(numero)
@@ -177,6 +182,9 @@ class Game
         end
         if numero == 2
             return @jugadorTwo
+        end
+        if numero == 3
+            return @jugadorThree
         end
     end
 
@@ -216,6 +224,10 @@ class Game
     def ponerNumeroAJugadaDerecha(numeroJugador,fila,columna)
         casilla = @tablero.obtenerCasilla(fila,columna)
         casilla.cambiarNumeroJugadorLadoDerecha(numeroJugador)
+    end
+
+    def selecionarCantidadDeJugadores(numeroJugadores)
+        @numeroDejugadores = numeroJugadores
     end
 
     def GameOver
