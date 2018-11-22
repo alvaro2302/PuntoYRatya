@@ -37,7 +37,9 @@ class Game
                 end
                 if columna.LadoDerecha()
 
-                    style = style+ " td-border-right"
+                    numeroDeJugador = columna.numeroJugadorLadoDerecha
+                    styleJugador = obtenerEstiloJugadorDerecha(numeroDeJugador)
+                    style = style+ styleJugador
                     
                     
                 end
@@ -86,6 +88,19 @@ class Game
 
         return estilo
 
+    end
+
+    def obtenerEstiloJugadorDerecha(numeroJugador)
+
+        estilo=""
+        if numeroJugador == 1 
+            estilo=" td-border-right"
+        end
+        if numeroJugador == 2
+            estilo=" jugador2Derecha"
+        end
+
+        return estilo
     end
 
 
