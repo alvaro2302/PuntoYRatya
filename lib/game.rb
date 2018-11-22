@@ -91,6 +91,9 @@ class Game
         if numeroJugador == 2
             estilo=" jugador2Abajo"
         end
+        if numeroJugador == 3
+            estilo=" jugador3Abajo"
+        end
 
         return estilo
 
@@ -118,6 +121,9 @@ class Game
         end
         if numeroJugador == 2
             estilo=" jugador2Arriba"
+        end
+        if numeroJugador == 3
+            estilo=" jugador3Arriba"
         end
 
         return estilo
@@ -154,6 +160,9 @@ class Game
         if lado == "Izquierda"
             tablero.marcarIzquierda(fila,columna)
             ponerNumeroAJugadaIzquierda(@jugadorActual,fila,columna)
+            if columna >0 
+                ponerNumeroAJugadaDerecha(@jugadorActual,fila,columna-1)
+            end
         end
         casilla = @tablero.obtenerCasilla(fila,columna)
         if casilla.estaLLena()

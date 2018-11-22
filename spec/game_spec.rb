@@ -125,6 +125,39 @@ describe Game do
 
     end
 
+    it "si tengo 3 jugadores y dan una jugada Abajo y Derecha Y Izquierda en la posicion 0,0 en el tablero deberia cambiar el estilo de la derecha  " do
+        tablero = tablero  = Tablero.new(2,2)
+        game = Game.new(tablero)
+        game.selecionarCantidadDeJugadores(3)
+        game.darJugada(1,1,"Abajo")
+        game.darJugada(1,1,"Derecha")
+        game.darJugada(1,1,"Izquierda")
+        expect(game.generarTabla).to eq("<tr>   <td class=''></td>   <td class=''></td></tr><tr>   <td class=' jugador3Derecha'></td>   <td class=' td-border-bottom jugador2Derecha jugador3Izquierda'></td></tr>")
+
+    end
+
+    it "si tengo 3 jugadores y dan una jugada Abajo y Derecha Y Arriba en la posicion 0,0 en el tablero deberia cambiar el estilo de la derecha  " do
+        tablero = tablero  = Tablero.new(2,2)
+        game = Game.new(tablero)
+        game.selecionarCantidadDeJugadores(3)
+        game.darJugada(1,1,"Abajo")
+        game.darJugada(1,1,"Derecha")
+        game.darJugada(1,1,"Arriba")
+        expect(game.generarTabla).to eq("<tr>   <td class=''></td>   <td class=' jugador3Abajo'></td></tr><tr>   <td class=''></td>   <td class=' jugador3Arriba td-border-bottom jugador2Derecha'></td></tr>")
+
+    end
+
+    it "si tengo 3 jugadores y dan una jugada Arriba y Derecha Y Abajo en la posicion 0,0 en el tablero deberia cambiar el estilo de la derecha  " do
+        tablero = tablero  = Tablero.new(2,2)
+        game = Game.new(tablero)
+        game.selecionarCantidadDeJugadores(3)
+        game.darJugada(1,1,"Arriba")
+        game.darJugada(1,1,"Derecha")
+        game.darJugada(1,1,"Abajo")
+        expect(game.generarTabla).to eq("<tr>   <td class=''></td>   <td class=' td-border-bottom'></td></tr><tr>   <td class=''></td>   <td class=' td-border-top jugador3Abajo jugador2Derecha'></td></tr>")
+
+    end
+
     
 
     
