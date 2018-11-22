@@ -71,6 +71,26 @@ describe Game do
         expect(game.generarTabla).to eq("<tr>   <td class=' jugador2Derecha td-border-left'></td>   <td class=' jugador2Izquierda'></td></tr><tr>   <td class=''></td>   <td class=''></td></tr><tr>   <td class=''></td>   <td class=''></td></tr><tr>   <td class=''></td>   <td class=''></td></tr>")
     end
 
+    it "si el jugador2 da una jugada a arriba deberia ser distinto el  estilo " do
+        tablero = tablero  = Tablero.new(4,2)
+        game = Game.new(tablero)
+        #turno del jugador 1
+        game.darJugada(0,0,"Izquierda")
+        #turno del jugador 2
+        game.darJugada(0,0,"Arriba")
+        expect(game.generarTabla).to eq("<tr>   <td class=' jugador2Arriba td-border-left'></td>   <td class=''></td></tr><tr>   <td class=''></td>   <td class=''></td></tr><tr>   <td class=''></td>   <td class=''></td></tr><tr>   <td class=''></td>   <td class=''></td></tr>")
+    end
+
+    it "si el jugador2 da una jugada a arriba y tiene alado una casilla  deberia cambiar   el  estilo de esa casilla mas " do
+        tablero = tablero  = Tablero.new(4,2)
+        game = Game.new(tablero)
+        #turno del jugador 1
+        game.darJugada(0,0,"Izquierda")
+        #turno del jugador 2
+        game.darJugada(1,1,"Arriba")
+        expect(game.generarTabla).to eq("<tr>   <td class=' td-border-left'></td>   <td class=' jugador2Abajo'></td></tr><tr>   <td class=''></td>   <td class=' jugador2Arriba'></td></tr><tr>   <td class=''></td>   <td class=''></td></tr><tr>   <td class=''></td>   <td class=''></td></tr>")
+    end
+
 
    
 
@@ -91,7 +111,7 @@ describe Game do
         game.darJugada(0,0,"Izquierda")
         game.darJugada(0,0,"Arriba")
         game.darJugada(0,0,"Abajo")
-        expect(game.generarTabla).to eq("<tr>   <td class=' td-border-top jugador2Abajo td-border-right jugador2Izquierda'></td>   <td class=' td-border-left'></td></tr><tr>   <td class=' td-border-top'></td>   <td class=''></td></tr><tr>   <td class=''></td>   <td class=''></td></tr><tr>   <td class=''></td>   <td class=''></td></tr>")
+        expect(game.generarTabla).to eq("<tr>   <td class=' td-border-top jugador2Abajo td-border-right jugador2Izquierda'></td>   <td class=' td-border-left'></td></tr><tr>   <td class=' jugador2Arriba'></td>   <td class=''></td></tr><tr>   <td class=''></td>   <td class=''></td></tr><tr>   <td class=''></td>   <td class=''></td></tr>")
     end
 
     

@@ -26,8 +26,9 @@ class Game
                 style = ""
                 td = "   <td class="+style +"></td>"
                 if columna.LadoArriba()
-                  
-                  style =  style+" td-border-top"
+                    numeroDeJugador = columna.numeroJugadorLadoArriba
+                    styleJugador = obtenerEstiloJugadorArriba(numeroDeJugador)
+                    style =  style+styleJugador
                     
                 end
                 if columna.LadoAbajo()
@@ -102,6 +103,18 @@ class Game
 
         return estilo
     end
+    def obtenerEstiloJugadorArriba(numeroJugador)
+        estilo=""
+        if numeroJugador == 1 
+            estilo=" td-border-top"
+        end
+        if numeroJugador == 2
+            estilo=" jugador2Arriba"
+        end
+
+        return estilo
+
+    end
 
 
     def darJugada(fila,columna,lado)
@@ -109,6 +122,10 @@ class Game
         if lado == "Arriba"
             tablero.marcarArriba(fila,columna)
             ponerNumeroAJugadaArriba(@jugadorActual,fila,columna)
+            if fila >0 
+                ponerNumeroAJugadaAbajo(@jugadorActual,fila-1,columna)
+                
+            end
         end
         if lado == "Abajo"
             tablero.marcarAbajo(fila,columna)
