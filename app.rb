@@ -59,5 +59,13 @@ class App < Sinatra::Base
       erb:gameover
     end
   end
+
+  post '/reinicarJuego' do
+    tablero = Tablero.new(4,4)
+    game = Game.new(tablero)
+    redirect '/mostrarUserName'
+  end
+
   run! if app_file == $0;
 end
+
