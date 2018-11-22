@@ -74,6 +74,9 @@ class Game
         if numeroJugador == 2
             estilo=" jugador2Izquierda"
         end
+        if numeroJugador == 3
+            estilo=" jugador3Izquierda"
+        end
 
         return estilo
 
@@ -101,6 +104,9 @@ class Game
         end
         if numeroJugador == 2
             estilo=" jugador2Derecha"
+        end
+        if numeroJugador == 3
+            estilo=" jugador3Derecha"
         end
 
         return estilo
