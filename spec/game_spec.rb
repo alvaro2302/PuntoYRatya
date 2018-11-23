@@ -120,7 +120,6 @@ describe Game do
         game.darJugada(0,0,"Abajo")
         game.darJugada(0,0,"Izquierda")
         game.darJugada(0,0,"Derecha")
-        puts game.generarTabla
         expect(game.generarTabla).to eq("<tr>   <td class=' td-border-bottom jugador3Derecha jugador2Izquierda'></td>   <td class=' jugador3Izquierda'></td></tr><tr>   <td class=' td-border-top'></td>   <td class=''></td></tr><tr>   <td class=''></td>   <td class=''></td></tr><tr>   <td class=''></td>   <td class=''></td></tr>")
 
     end
