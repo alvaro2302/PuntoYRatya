@@ -113,6 +113,49 @@ describe Game do
         game.darJugada(0,0,"Abajo")
         expect(game.generarTabla).to eq("<tr>   <td class=' td-border-top jugador2Abajo td-border-right jugador2Izquierda'></td>   <td class=' td-border-left'></td></tr><tr>   <td class=' jugador2Arriba'></td>   <td class=''></td></tr><tr>   <td class=''></td>   <td class=''></td></tr><tr>   <td class=''></td>   <td class=''></td></tr>")
     end
+    it "si tengo 3 jugadores y dan una jugada Abajo y Izquierda Y Derecha en la posicion 0,0 en el tablero deberia cambiar el estilo de la derecha  " do
+        tablero = tablero  = Tablero.new(4,2)
+        game = Game.new(tablero)
+        game.selecionarCantidadDeJugadores(3)
+        game.darJugada(0,0,"Abajo")
+        game.darJugada(0,0,"Izquierda")
+        game.darJugada(0,0,"Derecha")
+        expect(game.generarTabla).to eq("<tr>   <td class=' td-border-bottom jugador3Derecha jugador2Izquierda'></td>   <td class=' jugador3Izquierda'></td></tr><tr>   <td class=' td-border-top'></td>   <td class=''></td></tr><tr>   <td class=''></td>   <td class=''></td></tr><tr>   <td class=''></td>   <td class=''></td></tr>")
+
+    end
+
+    it "si tengo 3 jugadores y dan una jugada Abajo y Derecha Y Izquierda en la posicion 0,0 en el tablero deberia cambiar el estilo de la derecha  " do
+        tablero = tablero  = Tablero.new(2,2)
+        game = Game.new(tablero)
+        game.selecionarCantidadDeJugadores(3)
+        game.darJugada(1,1,"Abajo")
+        game.darJugada(1,1,"Derecha")
+        game.darJugada(1,1,"Izquierda")
+        expect(game.generarTabla).to eq("<tr>   <td class=''></td>   <td class=''></td></tr><tr>   <td class=' jugador3Derecha'></td>   <td class=' td-border-bottom jugador2Derecha jugador3Izquierda'></td></tr>")
+
+    end
+
+    it "si tengo 3 jugadores y dan una jugada Abajo y Derecha Y Arriba en la posicion 0,0 en el tablero deberia cambiar el estilo de la derecha  " do
+        tablero = tablero  = Tablero.new(2,2)
+        game = Game.new(tablero)
+        game.selecionarCantidadDeJugadores(3)
+        game.darJugada(1,1,"Abajo")
+        game.darJugada(1,1,"Derecha")
+        game.darJugada(1,1,"Arriba")
+        expect(game.generarTabla).to eq("<tr>   <td class=''></td>   <td class=' jugador3Abajo'></td></tr><tr>   <td class=''></td>   <td class=' jugador3Arriba td-border-bottom jugador2Derecha'></td></tr>")
+
+    end
+
+    it "si tengo 3 jugadores y dan una jugada Arriba y Derecha Y Abajo en la posicion 0,0 en el tablero deberia cambiar el estilo de la derecha  " do
+        tablero = tablero  = Tablero.new(2,2)
+        game = Game.new(tablero)
+        game.selecionarCantidadDeJugadores(3)
+        game.darJugada(1,1,"Arriba")
+        game.darJugada(1,1,"Derecha")
+        game.darJugada(1,1,"Abajo")
+        expect(game.generarTabla).to eq("<tr>   <td class=''></td>   <td class=' td-border-bottom'></td></tr><tr>   <td class=''></td>   <td class=' td-border-top jugador3Abajo jugador2Derecha'></td></tr>")
+
+    end
 
     
 
@@ -145,6 +188,25 @@ describe Game do
         expect(jugadorOne.nombre).to eq("alejandro")
         expect(jugadorTwo.nombre).to eq("alex")
     end
+
+    it "si añado 3 jugadores con su nombre  en el juego deberia devolver los nombres  de los 3 jugadores" do
+        tablero = tablero  = Tablero.new(4,2)
+        game = Game.new(tablero)
+        game.selecionarCantidadDeJugadores(3)
+        #añadiendo nombre al primer jugador
+        game.darNombre(1,"alejandro")
+        #añadiendo nombre al segundo jugador
+        game.darNombre(2,"alex")
+        #añadiendo nombre al tercer jugador 
+        game.darNombre(3,"juan")
+        jugadorOne = game.obtenerJugador(1)
+        jugadorTwo = game.obtenerJugador(2)
+        jugadorThree = game.obtenerJugador(3)
+        expect(jugadorOne.nombre).to eq("alejandro")
+        expect(jugadorTwo.nombre).to eq("alex")
+        expect(jugadorThree.nombre).to eq("juan")
+    end
+
 
     it "si tengo 2 jugadores y cuando este en el turno del primero jugador y se cambie el turno deberia cambiar a 2" do
         tablero = tablero  = Tablero.new(4,2)
@@ -164,6 +226,30 @@ describe Game do
         expect(jugadorActual).to eq(1)
         
     end
+
+    it "si tengo 3 jugadores y  cuando es el turno de segundo jugador y cambie el turno deberia cambiar a 3" do
+        tablero = tablero  = Tablero.new(4,2)
+        game = Game.new(tablero)
+        game.selecionarCantidadDeJugadores(3)
+        game.cambiarTurno()
+        game.cambiarTurno()
+        jugadorActual = game.obtenerJugadorActual()
+        expect(jugadorActual).to eq(3)
+
+    end
+
+    it "si tengo 3 jugadores y  cuando es el turno del tercer jugador y cambie el turno deberia cambiar a 1" do
+        tablero = tablero  = Tablero.new(4,2)
+        game = Game.new(tablero)
+        game.selecionarCantidadDeJugadores(3)
+        game.cambiarTurno()
+        game.cambiarTurno()
+        game.cambiarTurno()
+        jugadorActual = game.obtenerJugadorActual()
+        expect(jugadorActual).to eq(1)
+
+    end
+
     it "si se da una jugada del primer jugador  debe devolver  el jugador actual que seria el segundo jugador " do
         tablero = tablero  = Tablero.new(4,2)
         game = Game.new(tablero)
@@ -301,6 +387,8 @@ describe Game do
         expect(casillaMarcada.numeroJugadorLadoDerecha).to eq(2)
 
     end
+
+    
     
 
 
