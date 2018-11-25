@@ -1,5 +1,5 @@
 Given("estoy en la pagina userName") do
-    visit('/mostrarUserName')
+  visit('/mostrarUserName')
   end
 
   Then("deberia ver un campo con id {string}") do |string|
@@ -13,7 +13,7 @@ Given("estoy en la pagina userName") do
   When("ingreso el nombre {string} en el primer campo con id {string}") do |value, field|
     fill_in field, with: value
   end
-  
+
   When("ingreso el nombre {string} en el segundo campo con id {string}") do |value, field|
     fill_in field, with: value
   end
