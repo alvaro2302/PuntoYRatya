@@ -1,0 +1,48 @@
+<style>
+.main {
+  background-color: #07beb8  ;
+  height: 710px;
+}
+
+.tittle{
+    font-family:Bradley Hand, cursive;
+    font-size: 60pt;
+    color:  #047471;
+    margin-left:20%;
+}
+
+.juego{
+    font-family:Verdana, sans-serif;
+    font-size: 20pt;
+    color: #20553d ;
+}
+
+.boton {
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 500;
+    font-size: 20px;
+    color: white;
+    background-color: #9b09ef;
+    border-radius: 6px;
+    border: 2px solid #06a6a0;
+    margin-left:45%;
+  }
+</style>
+
+<div class="main">
+    <br><br>
+    <label class="tittle">MODALIDAD DE JUEGO</label>
+    <br><br><br><br><br><br>
+    <form method="get" action="/mostrarUserName">
+        <center><label class="juego">tamaño del tablero:</label>
+        <input type='number' name='filas' id='filas'>
+        <label class="juego"> X </label>
+        <input type='number' name='columnas' id='columnas'></center>
+        <br><br>
+        <center><label class="juego">cantidad de jugadores:</label>
+        <input type='number' name='cantidad' id='cantidad'></center>
+        <br><br><br><br><br><br>
+        <input  class="boton" type='submit' value='Ingresar Nombres'>
+    </form>
+</div>

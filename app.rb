@@ -17,6 +17,10 @@ class App < Sinatra::Base
     erb :userName
   end
 
+  get '/modoJuego' do
+    erb :modoJuego
+  end
+
 
 
 
@@ -63,7 +67,7 @@ class App < Sinatra::Base
   post '/reinicarJuego' do
     tablero = Tablero.new(4,4)
     game = Game.new(tablero)
-    redirect '/mostrarUserName'
+    redirect '/modoJuego'
   end
 
   run! if app_file == $0;
