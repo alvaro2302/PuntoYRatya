@@ -97,7 +97,7 @@ class Game
         if numeroJugador == 3
             estilo=" jugador3Abajo"
         end
-        if numeroJugador == 
+        if numeroJugador == 4
             estilo=" jugador4Abajo"
         end
 
@@ -224,13 +224,9 @@ class Game
     def cambiarTurno()
         if @jugadorActual == @numeroDejugadores
             @jugadorActual = 1
-            @jugadorOne.cambiar_turno(true)
-            @jugadorTwo.cambiar_turno(false)
         else
             turno = @jugadorActual +1
-            @jugadorActual= turno
-            @jugadorOne.cambiar_turno(false)
-            @jugadorTwo.cambiar_turno(true)
+            @jugadorActual = turno
         end
     end
 

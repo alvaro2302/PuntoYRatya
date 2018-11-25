@@ -119,7 +119,7 @@ class App < Sinatra::Base
   end
 
   get '/mostrarTablaVaciaFour' do  
-    game.selecionarCantidadDeJugadores(3)
+    game.selecionarCantidadDeJugadores(4)
     game.darNombre(1,params[:first_user_name])
     game.darNombre(2,params[:second_user_name])
     game.darNombre(3,params[:three_user_name])
