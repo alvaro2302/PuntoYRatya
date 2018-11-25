@@ -147,6 +147,13 @@ describe Tablero do
         jugadasRestantes = game.obtenerJugadasRestantes()
         expect(jugadasRestantes).to eq(11)
     end
+
+    it "si apreto reiniciar deberia devolverme el total del jugadas que pueden haber en el tablero" do
+        tablero = tablero = Tablero.new(4,4)
+        game = Game.new(tablero)
+        jugadasRestantes = game.obtenerJugadasRestantes()
+        expect(jugadasRestantes).to eq(40)
+    end
     
 
 

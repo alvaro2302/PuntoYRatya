@@ -77,6 +77,9 @@ class Game
         if numeroJugador == 3
             estilo=" jugador3Izquierda"
         end
+        if numeroJugador == 4
+            estilo=" jugador4Izquierda"
+        end
 
         return estilo
 
@@ -93,6 +96,9 @@ class Game
         end
         if numeroJugador == 3
             estilo=" jugador3Abajo"
+        end
+        if numeroJugador == 4
+            estilo=" jugador4Abajo"
         end
 
         return estilo
@@ -111,6 +117,9 @@ class Game
         if numeroJugador == 3
             estilo=" jugador3Derecha"
         end
+        if numeroJugador == 4
+            estilo=" jugador4Derecha"
+        end
 
         return estilo
     end
@@ -124,6 +133,9 @@ class Game
         end
         if numeroJugador == 3
             estilo=" jugador3Arriba"
+        end
+        if numeroJugador == 4
+            estilo=" jugador4Arriba"
         end
 
         return estilo
@@ -189,6 +201,9 @@ class Game
         if numeroJugador==3
             @jugadorThree.poner_nombre(nombreJugador)
         end
+        if numeroJugador==4
+            @jugadorFour.poner_nombre(nombreJugador)
+        end
     end
 
     def obtenerJugador(numero)
@@ -201,18 +216,17 @@ class Game
         if numero == 3
             return @jugadorThree
         end
+        if numero == 4
+            return @jugadorFour
+        end
     end
 
     def cambiarTurno()
         if @jugadorActual == @numeroDejugadores
             @jugadorActual = 1
-            @jugadorOne.cambiar_turno(true)
-            @jugadorTwo.cambiar_turno(false)
         else
             turno = @jugadorActual +1
-            @jugadorActual= turno
-            @jugadorOne.cambiar_turno(false)
-            @jugadorTwo.cambiar_turno(true)
+            @jugadorActual = turno
         end
     end
 

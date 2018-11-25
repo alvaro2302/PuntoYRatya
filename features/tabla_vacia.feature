@@ -16,3 +16,7 @@ Feature: Tabla Vacia
     Scenario: Turno jugador correspondiente
         Given Estoy en la pagina tablaVacia
         Then Al lado del primer jugador veo el mensaje 'turno del Jugador:' 
+        
+    Scenario: Reiniciar partida
+        Given Estoy en la pagina de tablaVacia
+        Then en la parte de abajo veo el boton 'Reiniciar'
