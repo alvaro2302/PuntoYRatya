@@ -26,23 +26,22 @@
     background-color: #9b09ef;
     border-radius: 6px;
     border: 2px solid #06a6a0;
-    margin-left:45%;
+    margin-left:2px;
   }
+
 </style>
 
 <div class="main">
     <br><br>
     <label class="tittle">MODALIDAD DE JUEGO</label>
     <br><br><br><br><br><br>
-    <form method="get" action="/mostrarUserName">
+    <form method="post" action="/redireccionJugadores">
         <center><label class="juego">tamaño del tablero:</label>
-        <input type='number' name='filas' id='filas'>
-        <label class="juego"> X </label>
-        <input type='number' name='columnas' id='columnas'></center>
+        <input class="boton" type='submit' name='selection' value='3X3'>
+        <input class="boton" type='submit' name='selection' value='4X4'>
+        <input class="boton" type='submit' name='selection' value='5X5'>
+        <input class="boton" type='submit' name='selection' value='6X6'>
+        <input class="boton" type='submit' name='selection' value='7X7'></center>
         <br><br>
-        <center><label class="juego">cantidad de jugadores:</label>
-        <input type='number' name='cantidad' id='cantidad'></center>
-        <br><br><br><br><br><br>
-        <input  class="boton" type='submit' value='Ingresar Nombres'>
     </form>
 </div>
