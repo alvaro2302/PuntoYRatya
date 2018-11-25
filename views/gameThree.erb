@@ -56,6 +56,20 @@ table,th,td {
   .jugadorTwo {
     text-align: rigth;
   }
+  .jugador3Abajo {
+    border-bottom: 3px solid red;
+  }
+  .jugador3Izquierda {
+    border-left: 3px solid red;
+  }
+  .jugador3Derecha {
+    border-right: 3px solid red;
+  }
+  .jugador3Arriba {
+    border-top: 3px solid red;
+  }
+
+
   .jugador2Abajo {
     border-bottom: 3px solid blue;
   }
@@ -146,13 +160,17 @@ table,th,td {
   <div class="jugador"> 
     <label >Segundo Jugador:  <%= @jugador2.nombre %> puntaje :  <%= @jugador2.puntos()%></label>
   </div>
+  <br>
+  <div class="jugador"> 
+    <label >Tercer Jugador:  <%= @jugador3.nombre %> puntaje :  <%= @jugador3.puntos()%></label>
+  </div>
   <br><br>
    <% cont=0 %>
   <table id="tabla" name="tabla" style align="center" width= "50%" height="50%";>
     <%= @tabla %>
   </table>  
   <br><br>
-  <form method="get" action="/mostrarJugada">
+  <form method="get" action="/gameThree">
       <label class="filas-cols">Ingrese la fila:</label>
       <input type='text' name='fila' id='fila'>
       <label class="filas-cols">Ingrese la columna:</label>

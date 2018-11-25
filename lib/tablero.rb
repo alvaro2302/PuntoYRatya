@@ -6,6 +6,7 @@ class Tablero
         @filas = filas
         @columnas = columnas 
         @matriz=Array.new(@filas) {Array.new(@columnas) {Casilla.new()}}
+        @jugadasRestantes = (((@columnas*4)-(@columnas-1))*@filas) -(@columnas*(@filas-1))
     end
 
     def filas()
@@ -16,8 +17,14 @@ class Tablero
         return @columnas
     end
     
+    def jugadasRestantes()
+        return @jugadasRestantes
+    end
+    
+
     def marcarDerecha(fila,columna)
         @matriz[fila][columna].seleccionarLado("Derecha")
+        restarJugada()
         if @matriz[fila][columna].LadoDerecha()
             if columna < @columnas-1
                 @matriz[fila][columna+1].seleccionarLado("Izquierda")
@@ -27,6 +34,7 @@ class Tablero
 
     def marcarIzquierda(fila,columna)
         @matriz[fila][columna].seleccionarLado("Izquierda")
+        restarJugada()
         if @matriz[fila][columna].LadoIzquierda()
             if columna >0 
                 @matriz[fila][columna-1].seleccionarLado("Derecha")
@@ -34,8 +42,11 @@ class Tablero
         end
     end
 
+    
+
     def marcarArriba(fila,columna)
         @matriz[fila][columna].seleccionarLado("Arriba")
+        restarJugada()
         if @matriz[fila][columna].LadoArriba()
             if fila >0 
                 @matriz[fila-1][columna].seleccionarLado("Abajo")
@@ -45,6 +56,7 @@ class Tablero
     
     def marcarAbajo(fila,columna)
         @matriz[fila][columna].seleccionarLado("Abajo")
+        restarJugada()
         if @matriz[fila][columna].LadoAbajo()
             if fila < @filas-1
                 @matriz[fila+1][columna].seleccionarLado("Arriba")
@@ -59,4 +71,10 @@ class Tablero
     def obtenerMatriz
         return @matriz
     end
+
+    def restarJugada()
+        jugadaRestada =  @jugadasRestantes-1
+        @jugadasRestantes = jugadaRestada
+    end
+
 end

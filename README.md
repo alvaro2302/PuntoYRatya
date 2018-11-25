@@ -1,2 +1,2 @@
-Capybara cheat sheet:
-https://launchacademy.com/codecabulary/learn-test-driven-development/rspec/capybara-cheat-sheet
+repositorio PuntoYRaya
+[![Build Status](https://travis-ci.org/alvaro2302/PuntoYRaya.svg?branch=develop)](https://travis-ci.org/alvaro2302/PuntoYRaya)
