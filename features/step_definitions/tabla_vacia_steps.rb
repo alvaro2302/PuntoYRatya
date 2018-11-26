@@ -17,3 +17,15 @@ Given("Estoy en la pagina tablaVacia") do
   Then("Al lado del primer jugador veo el mensaje {string}") do |string|
     expect(page).to have_content(string)
   end
+
+  Then("en la parte de abajo veo el boton {string}") do |string|
+    expect(page).to have_button(string)
+  end
+
+Given("Estoy en la pagina tablaVaciaThree") do
+  visit('/mostrarTablaVaciaThree')
+end
+
+Given("Estoy en la pagina tablaVaciaFour") do
+  visit('/mostrarTablaVaciaFour')
+end

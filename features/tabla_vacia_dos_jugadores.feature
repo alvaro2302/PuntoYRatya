@@ -1,4 +1,4 @@
-Feature: Tabla Vacia
+Feature: Tabla Vacia dos jugadores
 
     Como un jugador
     Quiero ver una tabla vacía
@@ -18,5 +18,6 @@ Feature: Tabla Vacia
         Then Al lado del primer jugador veo el mensaje 'turno del Jugador:' 
         
     Scenario: Reiniciar partida
-        Given Estoy en la pagina de tablaVacia
-        Then en la parte de abajo veo el boton 'Reiniciar'
+        Given Estoy en la pagina tablaVacia
+        When presiono el boton 'Reiniciar'
+        Then deberia ver la pagina con titulo "MODALIDAD DE JUEGO" 
