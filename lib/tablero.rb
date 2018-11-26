@@ -77,4 +77,34 @@ class Tablero
         @jugadasRestantes = jugadaRestada
     end
 
+    def esJugadaValida(fila,columna,lado)
+        esValida = true
+        if  fila>=0  and fila<=@filas and columna>=0 and columna <=@columnas
+            if lado  == "Arriba"
+                if @matriz[fila][columna].LadoArriba()
+                    esValida = false
+                end
+            end
+            if lado  == "Abajo"
+                if @matriz[fila][columna].LadoAbajo()
+                    esValida = false
+                end
+            end
+            if lado  == "Derecha"
+                if @matriz[fila][columna].LadoDerecha()
+                    esValida = false
+                end
+            end
+            if lado  == "Izquierda"
+                if @matriz[fila][columna].LadoIzquierda()
+                    esValida = false
+                end
+            end
+        else
+            esValida =false
+        end   
+        return esValida
+
+    end
+
 end

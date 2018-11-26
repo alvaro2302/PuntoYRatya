@@ -144,50 +144,51 @@ class Game
 
 
     def darJugada(fila,columna,lado)
-      
-        if lado == "Arriba"
-            tablero.marcarArriba(fila,columna)
-            ponerNumeroAJugadaArriba(@jugadorActual,fila,columna)
-            if fila >0 
-                ponerNumeroAJugadaAbajo(@jugadorActual,fila-1,columna)
-                
+        if @tablero.esJugadaValida(fila,columna,lado)
+            if lado == "Arriba"
+                tablero.marcarArriba(fila,columna)
+                ponerNumeroAJugadaArriba(@jugadorActual,fila,columna)
+                if fila >0 
+                    ponerNumeroAJugadaAbajo(@jugadorActual,fila-1,columna)
+                    
+                end
             end
-        end
-        if lado == "Abajo"
-            tablero.marcarAbajo(fila,columna)
-            ponerNumeroAJugadaAbajo(@jugadorActual,fila,columna)
-            if fila < tablero.filas()-1
-                ponerNumeroAJugadaArriba(@jugadorActual,fila+1,columna)
-                
+            if lado == "Abajo"
+                tablero.marcarAbajo(fila,columna)
+                ponerNumeroAJugadaAbajo(@jugadorActual,fila,columna)
+                if fila < tablero.filas()-1
+                    ponerNumeroAJugadaArriba(@jugadorActual,fila+1,columna)
+                    
+                end
             end
-        end
-        if lado == "Derecha"
-            tablero.marcarDerecha(fila,columna)
-            ponerNumeroAJugadaDerecha(@jugadorActual,fila,columna)
-            if columna < tablero.columnas()-1
-                ponerNumeroAJugadaIzquierda(@jugadorActual,fila,columna+1)
-            end
+            if lado == "Derecha"
+                tablero.marcarDerecha(fila,columna)
+                ponerNumeroAJugadaDerecha(@jugadorActual,fila,columna)
+                if columna < tablero.columnas()-1
+                    ponerNumeroAJugadaIzquierda(@jugadorActual,fila,columna+1)
+                end
 
-        end
-        if lado == "Izquierda"
-            tablero.marcarIzquierda(fila,columna)
-            ponerNumeroAJugadaIzquierda(@jugadorActual,fila,columna)
-            if columna >0 
-                ponerNumeroAJugadaDerecha(@jugadorActual,fila,columna-1)
             end
-        end
-        casilla = @tablero.obtenerCasilla(fila,columna)
-        if casilla.estaLLena()
-            jugadorActual = obtenerJugador(@jugadorActual)
-            jugadorActual.aumentar_punto()
-        end
-        
-        
+            if lado == "Izquierda"
+                tablero.marcarIzquierda(fila,columna)
+                ponerNumeroAJugadaIzquierda(@jugadorActual,fila,columna)
+                if columna >0 
+                    ponerNumeroAJugadaDerecha(@jugadorActual,fila,columna-1)
+                end
+            end
+            casilla = @tablero.obtenerCasilla(fila,columna)
+            if casilla.estaLLena()
+                jugadorActual = obtenerJugador(@jugadorActual)
+                jugadorActual.aumentar_punto()
+            end
+            
+            
 
-        if @tablero.jugadasRestantes()==0
-            @GameOver = true
+            if @tablero.jugadasRestantes()==0
+                @GameOver = true
+            end
+            cambiarTurno()
         end
-        cambiarTurno()
 
     end
 
@@ -262,6 +263,11 @@ class Game
     def obtenerCantidadDeJugadores
         return @numeroDejugadores
     end
+    def obtenerCasilla(fila,columna)
+        casilla = @tablero.obtenerCasilla(fila,columna)
+        return casilla
+    end
+
     def GameOver
         return @GameOver
     end
