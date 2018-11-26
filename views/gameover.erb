@@ -21,7 +21,7 @@
   <center><label class="tittle">Juego Terminado</label></center>
   <br><br><br><br>
   <center><% for i in 1..@numerodeJugadores %>
-    <label class="font">puntaje jugador <%= i%>:  <%= @game.obtenerJugador(i).puntos()%></label>
+    <label class="font">puntaje de <%= @game.obtenerJugador(i).nombre()%>:  <%= @game.obtenerJugador(i).puntos()%></label>
     <br><br>
   <%end%>
   <br><br></center>
