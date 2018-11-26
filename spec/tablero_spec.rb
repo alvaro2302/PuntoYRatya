@@ -55,6 +55,7 @@ describe Tablero do
         casilla = tablero.obtenerCasilla(1,1)
         casillaDeAlado = tablero.obtenerCasilla(2,1)
         expect(casilla.LadoAbajo()).to eq(true)
+        expect(casillaDeAlado.LadoArriba()).to  eq(true)
        
 
     end
