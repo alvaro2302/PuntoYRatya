@@ -332,6 +332,7 @@ describe Game do
     it "si se da una jugada del segundo jugador  debe devolver  el jugador actual que seria el tercer jugador " do
         tablero = tablero  = Tablero.new(4,2)
         game = Game.new(tablero)
+        game.selecionarCantidadDeJugadores(3)
         #añadiendo nombre al primer jugador
         game.darNombre(1,"alejandro")
         #añadiendo nombre al segundo jugador
@@ -349,6 +350,7 @@ describe Game do
     it "si se da una jugada del tercer jugador  debe devolver  el jugador actual que seria el primer jugador " do
         tablero = tablero  = Tablero.new(4,2)
         game = Game.new(tablero)
+        game.selecionarCantidadDeJugadores(3)
         #añadiendo nombre al primer jugador
         game.darNombre(1,"alejandro")
         #añadiendo nombre al segundo jugador
@@ -368,6 +370,7 @@ describe Game do
     it "si se da una jugada del tercer jugador  debe devolver  el jugador actual que seria el cuarto jugador " do
         tablero = tablero  = Tablero.new(4,2)
         game = Game.new(tablero)
+        game.selecionarCantidadDeJugadores(4)
         #añadiendo nombre al primer jugador
         game.darNombre(1,"alejandro")
         #añadiendo nombre al segundo jugador
@@ -381,7 +384,7 @@ describe Game do
         game.darJugada(0,0,"Derecha")
         numeroDeJugadorActual = game.obtenerJugadorActual()
         jugadorActual = game.obtenerJugador(numeroDeJugadorActual)
-        expect(jugadorActual.nombre).to eq("juan")
+        expect(jugadorActual.nombre).to eq("jose")
         expect(jugadorActual.puntos()).to eq(0)
     end
 
