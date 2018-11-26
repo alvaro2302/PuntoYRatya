@@ -10,5 +10,5 @@ Feature: Bienvenida
     Scenario: boton iniciar
         Given visito la pagina bienvenida
         When presiono el boton "Iniciar"
-        Then deberia ver la pagina con titulo "seleciona la cantidad de jugadores"
+        Then deberia ver la pagina con titulo "MODALIDAD DE JUEGO"
    
