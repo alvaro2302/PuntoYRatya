@@ -309,6 +309,78 @@ describe Game do
         expect(jugadasRestantes).to eq(11)
     end
 
+    it "si no  doy una jugada valida deberia no deberia restarse la cantidad de jugadas en el tablero" do
+        tablero = tablero  = Tablero.new(2,2)
+        game = Game.new(tablero)
+        #añadiendo nombre al primer jugador
+        game.darNombre(1,"alejandro")
+        #añadiendo nombre al segundo jugador
+        game.darNombre(2,"alex")
+        game.darJugada(3,3,"Arriba")
+        jugadasRestantes = game.obtenerJugadasRestantes()
+        expect(jugadasRestantes).to eq(12)
+
+    
+
+    end
+
+    it "si no  doy una jugada valida deberia no deberia restarse la cantidad de jugadas en el tablero" do
+        tablero = tablero  = Tablero.new(2,2)
+        game = Game.new(tablero)
+        #añadiendo nombre al primer jugador
+        game.darNombre(1,"alejandro")
+        #añadiendo nombre al segundo jugador
+        game.darNombre(2,"alex")
+        game.darJugada(3,3,"Abajo")
+        jugadasRestantes = game.obtenerJugadasRestantes()
+        expect(jugadasRestantes).to eq(12)
+
+    
+
+    end
+
+    it "si no  doy una jugada valida deberia no deberia restarse la cantidad de jugadas en el tablero" do
+        tablero = tablero  = Tablero.new(2,2)
+        game = Game.new(tablero)
+        #añadiendo nombre al primer jugador
+        game.darNombre(1,"alejandro")
+        #añadiendo nombre al segundo jugador
+        game.darNombre(2,"alex")
+        game.darJugada(3,3,"Derecha")
+        jugadasRestantes = game.obtenerJugadasRestantes()
+        expect(jugadasRestantes).to eq(12)
+
+    
+
+    end
+
+    it "si no  doy una jugada valida deberia no deberia restarse la cantidad de jugadas en el tablero" do
+        tablero = tablero  = Tablero.new(2,2)
+        game = Game.new(tablero)
+        #añadiendo nombre al primer jugador
+        game.darNombre(1,"alejandro")
+        #añadiendo nombre al segundo jugador
+        game.darNombre(2,"alex")
+        game.darJugada(3,3,"Izquierda")
+        jugadasRestantes = game.obtenerJugadasRestantes()
+        expect(jugadasRestantes).to eq(12)
+
+    end
+
+    it "si  doy una jugada a la 0,0 Derecha y marco Izquierda en la posicion 0,1 pero ya esta marcada no deberia restarse la cantidad de jugadas en el tablero" do
+        tablero = tablero  = Tablero.new(2,2)
+        game = Game.new(tablero)
+        #añadiendo nombre al primer jugador
+        game.darNombre(1,"alejandro")
+        #añadiendo nombre al segundo jugador
+        game.darNombre(2,"alex")
+        game.darJugada(0,0,"Derecha")
+        game.darJugada(0,1,"Izquierda")
+        jugadasRestantes = game.obtenerJugadasRestantes()
+        expect(jugadasRestantes).to eq(11)
+
+    end
+
     it "si lleno toda la tabla con jugadas deberia cambiar a true gameOver" do
         tablero = tablero  = Tablero.new(2,2)
         game = Game.new(tablero)
