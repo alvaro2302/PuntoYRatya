@@ -259,6 +259,9 @@ class Game
         @numeroDejugadores = numeroJugadores
     end
 
+    def obtenerCantidadDeJugadores
+        return @numeroDejugadores
+    end
     def GameOver
         return @GameOver
     end
