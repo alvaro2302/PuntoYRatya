@@ -72,6 +72,8 @@ class App < Sinatra::Base
     if @gameOver ==false
       erb :tablaVacia
     else
+      @numerodeJugadores= game.obtenerCantidadDeJugadores 
+      @game = game
       erb:gameover
     end
   end
@@ -113,6 +115,8 @@ class App < Sinatra::Base
     if @gameOver ==false
       erb :gameThree
     else
+      @numerodeJugadores= game.obtenerCantidadDeJugadores 
+      @game = game
       erb:gameover
     end
 
@@ -159,6 +163,8 @@ class App < Sinatra::Base
     if @gameOver ==false
       erb :gameFour
     else
+      @numerodeJugadores= game.obtenerCantidadDeJugadores 
+      @game = game
       erb:gameover
     end
 
